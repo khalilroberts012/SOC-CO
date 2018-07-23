@@ -16,11 +16,14 @@
 
 from google.appengine.ext import ndb
 
-class Food(ndb.Model):
-  food_name = ndb.StringProperty(required=True)
-
-      
-    
-
-
-            
+class UserProfile(ndb.Model):
+    firstName = ndb.StringProperty(required=True)
+    lastName = ndb.StringProperty(required=True)
+    userName = ndb.StringProperty(required=True)
+    email = ndb.StringProperty(required=True)
+    password = ndb.StringProperty(required=True)
+    phone = ndb.StringProperty(required=True)
+    gender = ndb.StringProperty(required=True)
+    twitterHandle = ndb.StringProperty(required=False)
+    facebookHandle = ndb.StringProperty(required=False)
+    linkedinHandle = ndb.StringProperty(required=False)
