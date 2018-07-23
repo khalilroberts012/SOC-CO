@@ -20,7 +20,8 @@ input[type="email"] {
   margin: 0 auto;
   width: 260px;
   height: 35px;
-  border-radius: 5px;
+  border-style: solid;
+  border-radius: 40px;
 }
 
 input[type="password"] {
