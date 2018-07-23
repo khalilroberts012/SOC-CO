@@ -70,15 +70,16 @@ class MainHandler(webapp2.RequestHandler):
         twitterHandle: 'twitterHandle',
         facebookHandle: 'facebookHandle',
         linkedinHandle: 'linkedinHandle'}
+
         end_template = jinja_current_dir.get_template("templates/results.html")
         self.response.write(end_template.render(variable_dict))
 
 class ShowUserHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_dir.get_template("templates/results.html")
-        userShow = UserProfile.query().order(-UserProfile.userName).fetch()
-        dict_for_template = {'variable_dict': userName}
-        self.response.write(results_template.render(dict_for_template))
+        userName = UserProfile.query().order(-UserProfile.userName).fetch()
+        variable_dict = {'variable_dict': userName}
+        self.response.write(results_template.render(variable_dict))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
