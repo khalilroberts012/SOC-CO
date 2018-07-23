@@ -59,7 +59,17 @@ class MainHandler(webapp2.RequestHandler):
         userProfileUpdate.put()
 
         #pass to the template via a dictionary
-        variable_dict = {'fav_food_for_view': the_fav_food}
+        variable_dict = {
+        firstName: 'fistName',
+        lastName: 'lastName',
+        userName: 'username',
+        email: 'email',
+        password: 'password',
+        phone: 'phone',
+        gender: 'gender',
+        twitterHandle: 'twitterHandle',
+        facebookHandle: 'facebookHandle',
+        linkedinHandle: 'linkedinHandle'}
         end_template = jinja_current_dir.get_template("templates/results.html")
         self.response.write(end_template.render(variable_dict))
 
