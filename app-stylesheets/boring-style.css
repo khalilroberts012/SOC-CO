@@ -71,7 +71,7 @@
  .push {
    height: 50px;
    border-style: solid;
-   border-color: rgb(46, 254, 7);
+   
    background: grey;
    opacity: .50;
  }
