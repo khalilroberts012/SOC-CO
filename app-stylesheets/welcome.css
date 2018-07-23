@@ -6,7 +6,14 @@ body{
   color: white;
   font-size: 20px;
 }
+h1 {
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
 
+  margin-left: 20px;
+  margin-top: 10px;
+}
 
 button{
   margin: 0, auto;
@@ -18,7 +25,14 @@ input[type="email"] {
   height: 35px;
   border-style: solid;
   border-radius: 50px;
-  
+
+}
+::placeholder {
+  text-align: center;
+  color: black;
+  opacity: 1;
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
 
 }
 
@@ -34,4 +48,8 @@ input[type="name"] {
   width: 260px;
   height: 35px;
   border-radius: 50px;
+}
+form {
+  margin-left: 250px;
+  margin-top: 10px;
 }
