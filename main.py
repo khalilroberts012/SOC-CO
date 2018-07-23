@@ -30,7 +30,9 @@ class MainHandler(webapp2.RequestHandler):
         start_template = jinja_current_dir.get_template("templates/welcome.html")
         self.response.write(start_template.render())
 
+        #collecting HTML input in the account creation process to input in Data Store
     def post(self):
+
         firstNameInput = self.request.get('user-firstname')
         lastNameInput = self.request.get('user-lastname')
         userNameInput = self.request.get('user-username')
@@ -44,7 +46,7 @@ class MainHandler(webapp2.RequestHandler):
 
 
         #put into database (optional)
-        userProfileUpdate = UserProfile(
+        userProfile = UserProfile(
         firstName = firstNameInput,
         lastName = lastNameInput,
         userName = userNameInput,
@@ -56,20 +58,20 @@ class MainHandler(webapp2.RequestHandler):
         facebookHandle = facebookHandleInput,
         linkedinHandle = linkedinHandleInput
         )
-        userProfileUpdate.put()
+        userProfile.put()
 
         #pass to the template via a dictionary
         variable_dict = {
-        firstName: 'fistName',
-        lastName: 'lastName',
-        userName: 'username',
-        email: 'email',
-        password: 'password',
-        phone: 'phone',
-        gender: 'gender',
-        twitterHandle: 'twitterHandle',
-        facebookHandle: 'facebookHandle',
-        linkedinHandle: 'linkedinHandle'}
+        'firstName': firstNameInput,
+        'lastName': lastNameInput,
+        'userName': userNameInput,
+        'email': emailInput,
+        'password': passwordInput,
+        'phone': phoneInput,
+        'gender': genderInput,
+        'twitterHandle': twitterHandleInput,
+        'facebookHandle': facebookHandleInput,
+        'linkedinHandle': linkedinHandleInput}
 
         end_template = jinja_current_dir.get_template("templates/results.html")
         self.response.write(end_template.render(variable_dict))
