@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-application: your-app-id
-version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -24,15 +22,15 @@ handlers:
   upload: favicon\.ico
 
 - url: /app-stylesheets
-  static_dir: app-stylesheets 
-  
+  static_dir: app-stylesheets
+
 - url: /my-images
   static_dir: my-images
-  
+
 #new handlers should go ABOVE the catch all url (.*)
 - url: .*
   script: main.app
-  
+
 
 libraries:
 - name: webapp2
