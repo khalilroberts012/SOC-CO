@@ -1,8 +1,9 @@
 body{
   margin: 0,auto;
 }
-#title{
-  text-align: center;
+
+#create-account{
+  text-align: left;
   color: white;
   font-size: 20px;
 }
@@ -11,8 +12,10 @@ h1 {
   font-family: 'Cabin', sans-serif;
   color: white;
 
-  margin-left: 20px;
-  margin-top: 10px;
+.sign-in{
+  color:white;
+  font-size: 20px;
+  text-align: right;
 }
 
 button{
