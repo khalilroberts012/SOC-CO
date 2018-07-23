@@ -7,8 +7,12 @@ body{
   color: white;
   font-size: 20px;
 }
+h1 {
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
 
-#sign-in{
+.sign-in{
   color:white;
   font-size: 20px;
   text-align: right;
@@ -25,6 +29,13 @@ input[type="email"] {
   border-style: solid;
   border-radius: 50px;
 
+}
+::placeholder {
+  text-align: center;
+  color: black;
+  opacity: 1;
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
 
 }
 .signIn {
@@ -42,4 +53,8 @@ input[type="name"] {
   width: 260px;
   height: 35px;
   border-radius: 50px;
+}
+form {
+  margin-left: 250px;
+  margin-top: 10px;
 }
