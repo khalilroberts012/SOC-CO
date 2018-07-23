@@ -16,14 +16,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome</title>
-    <link rel="stylesheet" type="text/css" href="app-stylesheets/boring-style.css">
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="welcome.css">
+    <body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUSRoz1sdwFYAEKiqZUMa5YMSjqEPktJ9i0JiKx7qQrTxWjEAX">
   </head>
   <body>
+  <div id="title">
+    <h1>Sign In</h1>
+  </div>
+  <div id="text-boxes">
     <form method=POST action="/">
-      Your Favorite Food:<br>
-      <input type="text" name="user-fav-food" value="Nachos">
-      <input type="submit" value="I'm Hungry">
+      First Name:<br>
+      <input type="text" name="user-firstname" value="Enter">
     </form>
+      <form method=POST action="/">
+        Last Name:<br>
+        <input type="text" name="user-lastname" value="Enter">
+      </form>
+      <form method=POST action="/">
+      <form method=POST action="/">
+          User Name:<br>
+          <input type="text" name="user-username" value="Enter">
+        </form>
+        Email:<br>
+        <input type="text" name="user-email" value="Enter">
+      </form>
+      <form method=POST action="/">
+        Password:<br>
+        <input type="text" name="user-password" value="Enter">
+      </form>
+      <form method=POST action="/">
+        Confirm Password:<br>
+        <input type="text" name="user-comfirmpassword" value="Enter">
+      </form>
+      <form>
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+</form>
+    </div>
+    <button type="button" name="Next Page" target="_blank" ></button>
   </body>
 </html>
