@@ -75,10 +75,10 @@ class MainHandler(webapp2.RequestHandler):
 
 class ShowUserHandler(webapp2.RequestHandler):
     def get(self):
-        food_list_template = jinja_current_dir.get_template("templates/foodlist.html")
-        fav_foods = Food.query().order(-Food.food_name).fetch()
-        dict_for_template = {'top_fav_foods': fav_foods}
-        self.response.write(food_list_template.render(dict_for_template))
+        results_template = jinja_current_dir.get_template("templates/results.html")
+        userShow = UserProfile.query().order(-UserProfile.userName).fetch()
+        dict_for_template = {'variable_dict': userName}
+        self.response.write(results_template.render(dict_for_template))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
