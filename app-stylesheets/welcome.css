@@ -1,0 +1,37 @@
+body{
+  margin: 0,auto;
+}
+#title{
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+
+button{
+  margin: 0, auto;
+}
+
+input[type="email"] {
+  margin: 0 auto;
+  width: 260px;
+  height: 35px;
+  border-style: solid;
+  border-radius: 50px;
+  
+
+}
+
+input[type="password"] {
+  margin: 0 auto;
+  width: 260px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+input[type="name"] {
+  margin: 0 auto;
+  width: 260px;
+  height: 35px;
+  border-radius: 50px;
+}
