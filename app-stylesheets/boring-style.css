@@ -13,16 +13,65 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ body {
 
-body{
-    color:blue;
-    background:grey;
-}
-h1 {
-    color: white;
-}
+   background: url("https://s-media-cache-ak0.pinimg.com/originals/c3/e8/9f/c3e89f4dafaf9b0a87ec3c82ebea5591.jpg");
+   background-size: cover;
+   background-position: center;
 
-#final-img {
-    height:350px;
-    border: solid black 2px;
-}
+ }
+
+ .Profile {
+   background: grey;
+   opacity: .80;
+   width: 400px;
+   height: 700px;
+   margin: 0 auto;
+   /* border-style: solid;
+   border-color: rgb(26, 13, 171); */
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding: 100px 50px 100px 50px;
+
+
+ }
+
+ h1 {
+   font-size: 60px;
+   font-family: 'Cabin', sans-serif;
+   color: rgb(26, 13, 171);
+   text-align: center;
+   margin-top: 0px;
+   margin-bottom: 0px;
+ }
+ img {
+   display: block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 30px;
+     width: 50%;
+ }
+
+ p {
+   font-size: 60px;
+   font-family: 'Cabin', sans-serif;
+   color: rgb(26, 13, 171);
+   text-align: center;
+   margin-top: 0px;
+
+ }
+ .wrapper {
+   min-height: 100%;
+
+   /* Equal to height of footer */
+   /* But also accounting for potential margin-bottom of last child */
+   margin-bottom: -50px;
+ }
+ .footer,
+ .push {
+   height: 50px;
+   border-style: solid;
+   border-color: rgb(46, 254, 7);
+   background: grey;
+   opacity: .50;
+ }
