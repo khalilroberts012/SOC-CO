@@ -81,7 +81,6 @@ class ShowUserHandler(webapp2.RequestHandler):
         self.response.write(food_list_template.render(dict_for_template))
 
 app = webapp2.WSGIApplication([
-    ('/', FoodHandler),
-    ('/showfavs', ShowFoodHandler),
-    Route('/<user_id>/settings', handler=SettingsHandler, name='user-settings')
+    ('/', MainHandler),
+    ('/showfavs', ShowUserHandler),
 ], debug=True)
