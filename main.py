@@ -82,5 +82,5 @@ class ShowUserHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/showfavs', ShowUserHandler)
+    ('/showfavs', ShowUserHandler),
 ], debug=True)
