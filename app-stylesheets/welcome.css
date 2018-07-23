@@ -27,7 +27,9 @@ input[type="email"] {
 
 
 }
+.signIn {
 
+}
 input[type="password"] {
   margin: 0 auto;
   width: 260px;
