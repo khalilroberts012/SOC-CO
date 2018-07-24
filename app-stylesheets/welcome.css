@@ -46,6 +46,9 @@ h2 {
 
 input[type="submit"] {
   margin-top: 20px;
+  cursor: pointer;
+  height: 5em;
+
 }
 
 input[type="radio"] {
@@ -55,6 +58,7 @@ input[type="radio"] {
   justify-content: flex-start;
   margin: 0, 0, 3em, 0;
   break-before: always;
+  cursor: pointer;
 }
 
 ::placeholder {
