@@ -4,6 +4,7 @@
   height: 100px;
   width: 50px;
   margin-left: 250px;
+
 }
 
 .signIn {
@@ -14,6 +15,37 @@
   display: inline-block;
   height: 100px;
   width: 50px;
+  border-style: : solid;
+  border-radius: 250px;
+}
+
+.input{
+  width: 260px;
+  height: 35px;
+}
+
+#conpass{
+  border-style: solid;
+  border-color: white;
+  border-radius: 0px 0px 15px 15px;
+}
+
+#first {
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+
+#email {
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+
+#password {
+  border-style: solid;
+  border-color: white;
+  border-radius: 0px 0px 15px 15px;
 }
 
 #signIn {
@@ -35,13 +67,6 @@ h2 {
   color: white;
   width: 200px;
   text-align: center;
-
-
-}
-
-.input{
-  width: 260px;
-  height: 35px;
 }
 
 input[type="submit"] {
@@ -53,14 +78,13 @@ input[type="radio"] {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 0, 0, 3em, 0;
   break-before: always;
 }
 
 ::placeholder {
   text-align: center;
-  color: black;
-  opacity: 1;
+  color: grey;
+  opacity: .8;
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
 }
