@@ -1,21 +1,29 @@
 .create {
-  /* float: right; */
+  float: left;
   display: inline-block;
   height: 100px;
   width: 50px;
+  margin-left: 250px;
 }
 
 .handles {
+  float: left;
   display: inline-block;
   height: 100px;
   width: 50px;
+  margin-left: 250px;
 }
 .signIn {
   float: left;
   text-align: center;
   display: inline-block;
   height: 100px;
-  width: 150px;
+  width: 50px;
+}
+
+.gender {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #signIn {
@@ -42,12 +50,17 @@
 }
 
 h1 {
-  margin-left: 150px;
+  margin-left: 165px;
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
 }
-
+h2 {
+  margin-left: 165px;
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+}
 body {
   margin: 0,auto;
 }
