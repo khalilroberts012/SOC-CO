@@ -1,10 +1,20 @@
 .create {
-  float: right;
+  /* float: right; */
+  display: inline-block;
+  height: 100px;
+  width: 50px;
+}
+
+.handles {
+  display: inline-block;
+  height: 100px;
+  width: 50px;
 }
 .signIn {
-  float: right;
+
   text-align: center;
 }
+
 #signIn {
   margin-left: 150px;
   font-size: 60px;
