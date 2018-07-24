@@ -17,73 +17,93 @@
 import webapp2
 import os
 import jinja2
-from models import UserProfile
+import userProfileModel
+from userProfileModel import UserProfile
 
-#remember, you can get this by searching for jinja2 google app engine
-jinja_current_dir = jinja2.Environment(
+jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+
+##BASIC MAIN HANDLER, WILL CHANGE TO HOMEPAGE
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        start_template = jinja_current_dir.get_template("templates/welcome.html")
-        self.response.write(start_template.render())
+        self.response.write("This is the homepage.")
+
+
+##CREATE A NEW ACCOUNT
+class CreateAccountHandler(webapp2.RequestHandler):
+    def get(self):
+        createAnAccountTemplate = jinja_env.get_template("templates/welcome.html")
+        self.response.write(createAnAccountTemplate.render())
 
         #collecting HTML input in the account creation process to input in Data Store
     def post(self):
 
-        firstNameInput = self.request.get('user-firstname')
-        lastNameInput = self.request.get('user-lastname')
-        userNameInput = self.request.get('user-username')
-        emailInput = self.request.get('user-email')
-        passwordInput = self.request.get('user-password')
-        phoneInput = self.request.get('user-phone')
-        genderInput = self.request.get('user-gender')
-        twitterHandleInput = self.request.get('user-twitterHandle')
-        facebookHandleInput = self.request.get('user-facebookHandle')
-        linkedinHandleInput = self.request.get('user-linkedinHandle')
+        userProfile = userProfileModel.UserProfile()
+        userProfile.firstName = self.request.get('user-firstname')
+        userProfile.lastName = self.request.get('user-lastname')
+        userProfile.userName = self.request.get('user-username')
+        userProfile.email = self.request.get('user-email')
+        userProfile.password = self.request.get('user-password')
+        userProfile.phone = self.request.get('user-phone')
+        userProfile.gender = self.request.get('user-gender')
+        userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
+        userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
+        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
 
+        displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
+        html = displayUserProfileTemplate.render({
+            'firstName': userProfile.firstName,
+            'lastName': userProfile.lastName,
+            'userName': userProfile.userName,
+            'email': userProfile.email,
+            'password': userProfile.password,
+            'phone': userProfile.phone,
+            'gender': userProfile.gender,
+            'twitterHandle': userProfile.twitterHandle,
+            'facebookHandle': userProfile.facebookHandle,
+            'linkedinHandle': userProfile.linkedinHandle
+        })
 
-        #put into database (optional)
-        userProfile = UserProfile(
-        firstName = firstNameInput,
-        lastName = lastNameInput,
-        userName = userNameInput,
-        email = emailInput,
-        password = passwordInput,
-        phone = phoneInput,
-        gender = genderInput,
-        twitterHandle = twitterHandleInput,
-        facebookHandle = facebookHandleInput,
-        linkedinHandle = linkedinHandleInput
-        )
+        self.response.write(html)
         userProfile.put()
 
-        #pass to the template via a dictionary
-        variable_dict = {
-        'firstName': firstNameInput,
-        'lastName': lastNameInput,
-        'userName': userNameInput,
-        'email': emailInput,
-        'password': passwordInput,
-        'phone': phoneInput,
-        'gender': genderInput,
-        'twitterHandle': twitterHandleInput,
-        'facebookHandle': facebookHandleInput,
-        'linkedinHandle': linkedinHandleInput}
 
-        end_template = jinja_current_dir.get_template("templates/results.html")
-        self.response.write(end_template.render(variable_dict))
-
+##FIND AND DISPLAY A USER ACCOUNT
 class ShowUserHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_dir.get_template("templates/results.html")
-        userName = UserProfile.query().order(-UserProfile.userName).fetch()
-        variable_dict = {'variable_dict': userName}
-        self.response.write(results_template.render(variable_dict))
+    def get(self, userName):
+
+        userProfile = userProfileModel.UserProfile()
+        userNameQuery = UserProfile.query().filter(UserProfile.userName == userName)
+        userProfile = userNameQuery.get()
+
+        #if the userName is not found in the query
+        if str(userProfile)=="None":
+            self.response.write("Sorry we couldn't find a profile with the username " + userName + ". Please try again.")
+
+        #if the userName is found in the query
+        else:
+            displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
+
+            html = displayUserProfileTemplate.render({
+                'firstName': userProfile.firstName,
+                'lastName': userProfile.lastName,
+                'userName': userProfile.userName,
+                'email': userProfile.email,
+                'password': userProfile.password,
+                'phone': userProfile.phone,
+                'gender': userProfile.gender,
+                'twitterHandle': userProfile.twitterHandle,
+                'facebookHandle': userProfile.facebookHandle,
+                'linkedinHandle': userProfile.linkedinHandle})
+
+            self.response.write(html)
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/showfavs', ShowUserHandler),
+    (r'/', MainHandler),
+    (r'/createaccount', CreateAccountHandler),
+    (r'/user/(\w+)', ShowUserHandler)
 ], debug=True)
