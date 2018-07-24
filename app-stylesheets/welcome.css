@@ -1,60 +1,76 @@
-body{
-  margin: 0,auto;
+.create {
+  float: right;
 }
-
-#create-account{
-  text-align: left;
-  color: white;
-  font-size: 20px;
+.signIn {
+  float: right;
+  text-align: center;
 }
-h1 {
+#signIn {
+  margin-left: 150px;
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
-
-.sign-in{
-  color:white;
-  font-size: 20px;
-  text-align: right;
 }
 
-button{
+#text-boxes {
+  float: left;
+  margin-left: 250px;
+  margin-top: 10px;
+}
+
+#button {
+  height: 50px;
+  width: 200px;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  border-radius: 40px;
+  border-style: solid;
+  margin: 0px 100px 10px 100px;
+}
+
+h1 {
+  margin-left: 150px;
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+}
+
+body {
+  margin: 0,auto;
+}
+
+button {
   margin: 0, auto;
 }
 
 input[type="email"] {
-  margin: 0 auto;
   width: 260px;
   height: 35px;
-  border-style: solid;
-  border-radius: 50px;
-
 }
+
+input[type="password"] {
+  width: 260px;
+  height: 35px;
+}
+
+input[type="name"] {
+  width: 260px;
+  height: 35px;
+}
+
+input[type="text"] {
+  width: 260px;
+  height: 35px;
+}
+
 ::placeholder {
   text-align: center;
   color: black;
   opacity: 1;
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
-
 }
-.signIn {
 
-}
-input[type="password"] {
-  margin: 0 auto;
+input[type="submit"] {
   width: 260px;
   height: 35px;
-  border-radius: 50px;
-}
-
-input[type="name"] {
-  margin: 0 auto;
-  width: 260px;
-  height: 35px;
-  border-radius: 50px;
-}
-form {
-  margin-left: 250px;
-  margin-top: 10px;
-}
