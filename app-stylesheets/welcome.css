@@ -6,13 +6,6 @@
   margin-left: 250px;
 }
 
-.handles {
-  float: left;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
-  margin-left: 250px;
-}
 .signIn {
   margin-right: 250px;
   margin-top: auto;
@@ -23,32 +16,10 @@
   width: 50px;
 }
 
-.gender {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 #signIn {
-  margin-left: 150px;
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
-}
-
-#text-boxes {
-  float: left;
-  margin-left: 250px;
-  margin-top: 10px;
-}
-
-#button {
-  height: 50px;
-  width: 200px;
-  padding: 10px 20px 10px 20px;
-  text-align: center;
-  border-radius: 40px;
-  border-style: solid;
-  margin: 0px 100px 10px 100px;
 }
 
 h1 {
@@ -63,32 +34,14 @@ h2 {
   font-family: 'Cabin', sans-serif;
   color: white;
 }
-body {
-  margin: 0,auto;
-}
 
-button {
-  margin: 0, auto;
-}
-
-input[type="email"] {
+.input{
   width: 260px;
   height: 35px;
 }
 
-input[type="password"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[type="name"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[type="text"] {
-  width: 260px;
-  height: 35px;
+input[type="submit"] {
+  margin-top: 20px;
 }
 
 ::placeholder {
@@ -98,7 +51,3 @@ input[type="text"] {
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
 }
-
-input[type="submit"] {
-  width: 260px;
-  height: 35px;
