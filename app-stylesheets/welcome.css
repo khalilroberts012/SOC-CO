@@ -11,7 +11,9 @@
   width: 50px;
 }
 .signIn {
-  float: left;
+  margin-right: 250px;
+  margin-top: auto;
+  float: right;
   text-align: center;
   display: inline-block;
   height: 100px;
