@@ -14,7 +14,7 @@
   margin-left: 250px;
 }
 .signIn {
-  margin-right: 250px;
+  margin-right: 475px;
   margin-top: auto;
   float: right;
   text-align: center;
@@ -58,10 +58,14 @@ h1 {
   color: white;
 }
 h2 {
-  margin-left: 165px;
+  margin-left: 35px;
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
+  width: 200px;
+  text-align: center;
+
+
 }
 body {
   margin: 0,auto;
@@ -89,6 +93,15 @@ input[type="name"] {
 input[type="text"] {
   width: 260px;
   height: 35px;
+}
+
+input[type="radio"] {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0, 0, 3em, 0;
+  break-before: always;
 }
 
 ::placeholder {
