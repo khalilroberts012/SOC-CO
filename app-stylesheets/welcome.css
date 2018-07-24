@@ -11,8 +11,11 @@
   width: 50px;
 }
 .signIn {
-
+  float: left;
   text-align: center;
+  display: inline-block;
+  height: 100px;
+  width: 150px;
 }
 
 #signIn {
