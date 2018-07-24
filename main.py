@@ -18,7 +18,8 @@ import webapp2
 import os
 import jinja2
 import userProfileModel
-from userProfileModel import UserProfile
+from userProfileModel
+import UserProfile
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
