@@ -2,8 +2,11 @@
   float: right;
 }
 .signIn {
-  float: right;
+  float: left;
   text-align: center;
+  display: inline-block;
+  height: 100px;
+  width: 150px;
 }
 #signIn {
   margin-left: 150px;
