@@ -21,41 +21,32 @@
     <body background="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgNDQ0NCA0HBwcNCA0HBwcHBw8ICQcNFREWFhURExUYHSggGCYxGxMVITEhJSkrLi4uFx8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAACAQADB//EABgQAQEBAQEAAAAAAAAAAAAAAAABEQIS/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APKljQpAWK0UGWMUgLIrRQZZGkOQEkKRYwMrSHIAyLIWLgDjYWMCYmGmANiWHjYDnYmOmJYDm2FYgDgWOiWA51CsQBsCx0GwHNiogg2ElAEKiBSFEhQGWMsBYcGQ4DLEKQFkKNFBVkaQpAaQpGi4DNiyFIA4uFjYA43k8bAc8THTEsAEw7BsAbBsNAc6h2DQCwbHSjYDmlKoAWC6UKApVQBonQA4qQgYoMOAsJIoLDkGHAWLGKQFkKJCgNCkaQoDSLixgZlkXAFsPEwBQ8TAHBsNLAc7BdLBsAKNhjYADSqUHOwXShQGjTGgFRagJRwqgLFRQWHAhwCiosA5CiRYCx0g8lAUpEhyAshJFBYsjSFAbFZQTGxWAUsJqDmh2DQGh1HQaDnUpUQDoHShQGhXSh0AJVSgFGn0FBKhCCxUigUOBDgKUEuQOFBhQC5ODCgFCgw4CwokKAUVIUBmZQZmYEQkAaNOjQBKtSgHQnQoDXOulCgNDox6AKlWpQDoadCgiKgNFRQLk4EOAsLkS5A4UGFAPkoPJQChwIcAoUEoBQoJQGVFBmZgZFQESrRoDRpUaA9BT6CgNCnQoDR6IegCpVqUBoU+goIioDRUigUOOcOARQVgOkKDFA+TjnycAo6Rzh80CKDFgOkUJSgEyKCsjAzIwNQq2jQSpVGgPQ1aIJXOn0FBKPRUOgGpVGgPQ0ugoMiiCxRhApyuZwDiwYsB0hQOSgFDlAuaBwoMUHSVQlKAayi2g6Srrnq6B62jraC6lqWpoLaLJaDULVtG0EqVqloD0LVKCUKVCgiVRoD0K1ASoqA0UYQKUFYDpFCFAKHK5lKDpFgxQdJSjnKcoFClBQdJV1zlKUDYdXQXWTW0F1E1rQXRtS1NBrUYbQaja1o0Go1aNoJaNapQSjSoUERkoMOrQBYUApQJUUChxzKUDWDFA5SjnKcoGsoysDpKWucqyg6No6ugWtoqBa2iwLraLAuompaC2jalqA1RktBLRta1ARKo0EtGtUBkZLQSitEGWMwHFZgVYzAcqswKsrMByrrMCqzAsq6zAsrarA2trMCamswJajMDIjAlo2swIjMCULVYArMwJRtRgSozA//Z">
   </head>
   <body>
-  <div id="title">
-    <h1>Create Account</h1>
-  </div>
-  <div id="text-boxes">
+    <div id="title">
+      <h1>Create Account</h1>
+    </div>
     <form method=POST>
-      <br>
-        <input type="name" placeholder="Firstname" name="user-firstname"><br>
-    <form action="/results">
-      First Name:<br>
-        <input type="name" name="user-firstname"><br>
-      Last Name:<br>
-        <input type="name" name="user-lastname"><br>
-      User Name:<br>
-        <input type="name" name="user-username"> <br>
-      Email:<br>
-        <input type="email" name="user-email"><br>
-      Password:<br>
-        <input type="password" name="user-password"><br>
-      Confirm Password:<br>
-        <input type="password" name="user-comfirmpassword"><br>
-      Select Gener:<br>
-        <input type="radio" name="user-gender" value="male"> Male<br>
-        <input type="radio" name="user-gender" value="female"> Female<br>
-        <input type="radio" name="user-gender" value="other"> Other<br>
-      Phone Number:<br>
-        <input type="text" name="user-phone" value="Enter"><br>
-      Twitter Handle:<br>
-        <input type="text" name="user-twitterHandle" value="Enter"><br>
-      Facebook Handle:<br>
-        <input type="text" name="user-facebookHandle" value="Enter"><br>
-      Linkedin Handle:<br>
-        <input type="text" name="user-linkedinHandle" value="Enter"><br>
+          <div class="create">
+            <input type="name" placeholder="Firstname" name="user-firstname" class="input">
+            <input type="name" placeholder="Lastname" name="user-lastname" class="input">
+            <input type="name" placeholder="Username" name="user-username" class="input">
+            <input type="email" placeholder="Email" name="user-email" class="input">
+            <input type="password" placeholder="Password" name="user-password" class="input">
+            <input type="password" placeholder="Confirm Password" name="user-comfirmpassword" class="input">
+          <br>
+            Select Gender:
+          <br>
+            <input type="radio" name="user-gender" value="male"> Male
+            <input type="radio" name="user-gender" value="female"> Female
+            <input type="radio" name="user-gender" value="other"> Other
+            <input type="submit" value="Create Account" class="input"></input>
+          </div>
 
-      <input type="submit" value="Create Account"></input>
-    </form>
-  </div>
+          <div class="signIn">
+            <h2>Sign In</h2>
+              <input type="email" placeholder="email" name="user-email" class="input">
+              <input type="password" placeholder="password" name="user-password" class="input"><br>
+          </div>
+        </form>
+
   </body>
 </html>

@@ -1,37 +1,66 @@
-body{
-  margin: 0,auto;
+.create {
+  float: left;
+  display: inline-block;
+  height: 100px;
+  width: 50px;
+  margin-left: 250px;
 }
-#title{
+
+.signIn {
+  margin-right: 475px;
+  margin-top: auto;
+  float: right;
   text-align: center;
+  display: inline-block;
+  height: 100px;
+  width: 50px;
+}
+
+#signIn {
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
   color: white;
-  font-size: 20px;
 }
 
+h1 {
+  margin-left: 165px;
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+}
+h2 {
+  margin-left: 35px;
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+  width: 200px;
+  text-align: center;
 
-button{
-  margin: 0, auto;
+
 }
 
-input[type="email"] {
-  margin: 0 auto;
+.input{
   width: 260px;
   height: 35px;
-  border-style: solid;
-  border-radius: 50px;
-  
-
 }
 
-input[type="password"] {
-  margin: 0 auto;
-  width: 260px;
-  height: 35px;
-  border-radius: 50px;
+input[type="submit"] {
+  margin-top: 20px;
 }
 
-input[type="name"] {
-  margin: 0 auto;
-  width: 260px;
-  height: 35px;
-  border-radius: 50px;
+input[type="radio"] {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0, 0, 3em, 0;
+  break-before: always;
+}
+
+::placeholder {
+  text-align: center;
+  color: black;
+  opacity: 1;
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
 }
