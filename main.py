@@ -18,7 +18,8 @@ import webapp2
 import os
 import jinja2
 import userProfileModel
-from userProfileModel import UserProfile
+from userProfileModel
+import UserProfile
 
 #remember, you can get this by searching for jinja2 google app engine
 jinja_current_dir = jinja2.Environment(
