@@ -19,6 +19,7 @@ import os
 import jinja2
 import userProfileModel
 from userProfileModel import UserProfile
+from google.appengine.api import users
 
 
 #remember, you can get this by searching for jinja2 google app engine
@@ -35,29 +36,13 @@ class MainHandler(webapp2.RequestHandler):
 
 
 ##CREATE A NEW ACCOUNT
-class CreateAccount&LoginHandler(webapp2.RequestHandler):
+class CreateAccountHandler(webapp2.RequestHandler):
     def get(self):
         createAnAccountTemplate = jinja_env.get_template("templates/welcome.html")
         self.response.write(createAnAccountTemplate.render())
 
         #collecting HTML input in the account creation process to input in Data Store
     def post(self):
-        userProfile = userProfileModel.UserProfile()
-
-        userAccountCheckQuery = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email'))
-        userProfile = userAccountCheckQuery.get()
-
-        if str(userProfile)=="None":
-            self.response.write("Sorry. An account with this email on file does not exist.")
-        else:
-            if UserProfile.password == self.request.get('userLogin-password')):
-
-
-
-        query = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email')
-        if()
-            if(UserProfile.query().filter(UserProfile.password == self.request.get('userLogin-password')))
-
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
         userProfile.userName = self.request.get('user-username')
