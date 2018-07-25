@@ -15,4 +15,6 @@
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(2, auto);
+    background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
+    background-position: center;
 }
