@@ -1,31 +1,46 @@
 .create {
-  float: left;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
-  margin-left: 375px;
-  margin-top: 20px;
-  opacity: .80;
-}
 
+  /* height: 150px;
+  width: 50px; */
+  margin-left: 375px;
+  margin-bottom: 0px;
+  opacity: .80;
+  flex-shrink: 1;
+  flex-basis: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(7, auto);
+}
+.grid {
+  display: flex;
+  grid-template-columns: 66% 33%;
+}
 .signIn {
-  margin-right: 250px;
-  margin-top: -250px;
-  float: right;
+  /*margin-right: 125px;
+  /*margin-top: -250px;
+  /*float: right;
+  /* margin-right: 250px; */
+  /* margin-top: -250px; */
+  /* float: right; */
   text-align: center;
   display: inline-block;
-  height: 1025px;
-  width: 500px;
+  flex-shrink: 1;
+  /* height: 1025px;
+  width: 500px; */
   border-style: : solid;
   /* border-radius: 250px; */
   background-color: black;
   opacity: .80;
+  flex-basis: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, auto);
 }
 
-.input{
+/* .input{
   width: 360px;
   height: 55px;
-}
+} */
 
 #conpass{
   border-style: solid;
@@ -76,7 +91,6 @@ h2 {
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
-  opacity: 1;
   width: 200px;
 }
 
@@ -88,9 +102,17 @@ input[type="submit"] {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px; }
+
+input[type="email"] {
+  margin-top: 0px;
+
 }
 
+#createButton {
+  height: 55px;
+  width: 370px;
+}
 /* input[type="radio"] {
   color: white;
   display: flex;
