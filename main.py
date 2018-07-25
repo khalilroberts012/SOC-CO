@@ -40,7 +40,6 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             email_address = user.nickname()
             existingUser = UserProfile.get_by_id(user.user_id())
 
-
             #If the user has previously been to our site, we greet them
             if existingUser:
                 editUserProfileTemplate = jinja_env.get_template("templates/editUserProfile.html")
@@ -62,14 +61,14 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             #If the user hasn't been to our site, we ask them to sign up
             else:
                 ###NEED CREATE ACCOUNT TEMPLATE AND NAME
-                createAccountTempalte = jinja_env.get_template("templates/createAccount.html")
+                createAccountTemplate = jinja_env.get_template("templates/welcome.html")
                 self.response.write(createAccountTemplate.render({
                 'signOut': users.create_logout_url('/')
                 }))
 
         #Otherwise, the user isn't logged in
         else:
-            homepageLoginTemplate = jinja_env.get_template("templates/welcome.html")
+            homepageLoginTemplate = jinja_env.get_template("templates/signin.html")
             self.response.write(homepageLoginTemplate.render({
             'signIn': users.create_login_url(r'/')
             }))
