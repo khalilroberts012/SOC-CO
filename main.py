@@ -106,7 +106,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'phone': userProfile.phone,
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
-            'linkedinHandle': userProfile.linkedinHandle
+            'linkedinHandle': userProfile.linkedinHandle,
+            'profilePicture': 
         })
 
         self.response.write(html)
@@ -140,9 +141,17 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'linkedinHandle': userProfile.linkedinHandle})
             self.response.write(html)
 
+##UPLOADING AN IMAGE
+class Image(webapp2.RequestHandler):
+    def get(self):
+        key = ndb.Key("Data", int(self.request.get("id")))
+        data = key.get()
+        self.response.headers['Content-Type'] = 'image.jpg'
+        self.response.write(data.image)
 
 
 app = webapp2.WSGIApplication([
     (r'/', HomepageLoginHandler),
-    (r'/(\w+)', ShowUserHandler)
+    (r'/submit', SubmitHandler),
+    (r'/(\w+)', ShowUserHandler),
 ], debug=True)
