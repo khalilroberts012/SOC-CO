@@ -1,19 +1,9 @@
 .create {
-<<<<<<< HEAD
-  float: left;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
-  margin-left: 250px;
-  margin-top: 20px;
-=======
-  /* float: left;
-  display: inline-block; */
+
   /* height: 150px;
   width: 50px; */
   margin-left: 375px;
   margin-bottom: 0px;
->>>>>>> 454b9615536ea0535422a46832c8ad269aec6d83
   opacity: .80;
   flex-shrink: 1;
   flex-basis: auto;
@@ -26,15 +16,12 @@
   grid-template-columns: 66% 33%;
 }
 .signIn {
-<<<<<<< HEAD
-  margin-right: 125px;
-  margin-top: -250px;
-  float: right;
-=======
+  /*margin-right: 125px;
+  /*margin-top: -250px;
+  /*float: right;
   /* margin-right: 250px; */
   /* margin-top: -250px; */
   /* float: right; */
->>>>>>> 454b9615536ea0535422a46832c8ad269aec6d83
   text-align: center;
   display: inline-block;
   flex-shrink: 1;
@@ -91,7 +78,7 @@ body {
 }
 
 h1 {
-  margin-left: 150px;
+  margin-left: 255px;
   margin-top: 100px;
   font-size: 80px;
   font-family: 'Cabin', sans-serif;
@@ -107,8 +94,7 @@ h2 {
   width: 200px;
 }
 
-<<<<<<< HEAD
-/*input[type="submit"] {
+input[type="submit"] {
   margin-top: 20px;
   cursor: pointer;
   height: 30px;
@@ -116,12 +102,11 @@ h2 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-=======
+  font-size: 20px; }
+
 input[type="email"] {
   margin-top: 0px;
 
->>>>>>> 454b9615536ea0535422a46832c8ad269aec6d83
 }
 
 #createButton {
