@@ -1,110 +1,92 @@
-.create {
-  float: left;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
-  margin-left: 250px;
+create {
+  margin-left: 375px;
+  margin-bottom: 0px;
+  opacity: .80;
+  flex-shrink: 1;
+  flex-basis: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(6, auto);
 }
 
-.handles {
-  float: left;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
-  margin-left: 250px;
-}
-.signIn {
-  margin-right: 475px;
-  margin-top: auto;
-  float: right;
-  text-align: center;
-  display: inline-block;
-  height: 100px;
-  width: 50px;
+.grid {
+  display: flex;
+  grid-template-columns: 66% 33%;
 }
 
-.gender {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.input{
+  width: 360px;
+  height: 55px;
 }
-
-#signIn {
-  margin-left: 150px;
-  font-size: 60px;
-  font-family: 'Cabin', sans-serif;
-  color: white;
-}
-
-#text-boxes {
-  float: left;
-  margin-left: 250px;
-  margin-top: 10px;
-}
-
-#button {
-  height: 50px;
-  width: 200px;
-  padding: 10px 20px 10px 20px;
-  text-align: center;
-  border-radius: 40px;
-  border-style: solid;
-  margin: 0px 100px 10px 100px;
-}
-
-h1 {
-  margin-left: 165px;
-  font-size: 60px;
-  font-family: 'Cabin', sans-serif;
-  color: white;
-}
-h2 {
-  margin-left: 35px;
-  font-size: 60px;
-  font-family: 'Cabin', sans-serif;
-  color: white;
-  width: 200px;
-  text-align: center;
-
-
-}
-body {
-  margin: 0,auto;
-}
-
-button {
-  margin: 0, auto;
-}
-
-input[type="email"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[type="password"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[type="name"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[type="text"] {
-  width: 260px;
-  height: 35px;
-}
-
-input[ty]
 
 ::placeholder {
   text-align: center;
-  color: black;
-  opacity: 1;
+  color: grey;
+  opacity: .8;
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
 }
 
+#conpass{
+  border-style: solid;
+  border-color: white;
+  border-radius: 0px 0px 15px 15px;
+}
+
+#first {
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+
+#email {
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+
+#password {
+  border-style: solid;
+  border-color: white;
+  border-radius: 0px 0px 15px 15px;
+}
+
+#signIn {
+  font-size: 60px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+}
+
+#createButton {
+  height: 55px;
+  width: 370px;
+}
+
+body {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
+  background-position: center;
+}
+
+h1 {
+  margin-left: 255px;
+  margin-top: 75px;
+  font-size: 80px;
+  font-family: 'Cabin', sans-serif;
+  color: white;
+}
+
 input[type="submit"] {
-  width: 260px;
-  height: 35px;
+  margin-top: 20px;
+  cursor: pointer;
+  height: 30px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+input[type="email"] {
+  margin-top: 0px;
+
+}
