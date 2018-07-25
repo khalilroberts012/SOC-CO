@@ -35,15 +35,29 @@ class MainHandler(webapp2.RequestHandler):
 
 
 ##CREATE A NEW ACCOUNT
-class CreateAccountHandler(webapp2.RequestHandler):
+class CreateAccount&LoginHandler(webapp2.RequestHandler):
     def get(self):
         createAnAccountTemplate = jinja_env.get_template("templates/welcome.html")
         self.response.write(createAnAccountTemplate.render())
 
-
         #collecting HTML input in the account creation process to input in Data Store
     def post(self):
         userProfile = userProfileModel.UserProfile()
+
+        userAccountCheckQuery = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email'))
+        userProfile = userAccountCheckQuery.get()
+
+        if str(userProfile)=="None":
+            self.response.write("Sorry. An account with this email on file does not exist.")
+        else:
+            if UserProfile.password == self.request.get('userLogin-password')):
+
+
+
+        query = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email')
+        if()
+            if(UserProfile.query().filter(UserProfile.password == self.request.get('userLogin-password')))
+
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
         userProfile.userName = self.request.get('user-username')
@@ -96,7 +110,6 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'email': userProfile.email,
                 'password': userProfile.password,
                 'phone': userProfile.phone,
-                'gender': userProfile.gender,
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle})
@@ -104,6 +117,6 @@ class ShowUserHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     (r'/', MainHandler),
-    (r'/createaccount', CreateAccountHandler),
+    (r'/createaccount', CreateAccount&LoginHandler),
     (r'/user/(\w+)', ShowUserHandler)
 ], debug=True)
