@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- body {
+body {
 
-   background: white;
+   background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
    background-size: cover;
    background-position: center;
 
  }
 
- .Profile {
+.Profile {
    background: black;
    opacity: .80;
    width: 400px;
@@ -36,7 +36,7 @@
 
  }
 
- h1 {
+h1 {
    font-size: 60px;
    font-family: 'Cabin', sans-serif;
    color: white;
@@ -44,7 +44,7 @@
    margin-top: 0px;
 
  }
- img {
+img {
    display: block;
      margin-left: auto;
      margin-right: auto;
