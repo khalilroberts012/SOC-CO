@@ -1,7 +1,4 @@
 .create {
-
-  /* height: 150px;
-  width: 50px; */
   margin-left: 375px;
   margin-bottom: 0px;
   opacity: .80;
@@ -9,29 +6,26 @@
   flex-basis: auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: repeat(7, auto);
+  grid-template-rows: repeat(6, auto);
 }
+
 .grid {
   display: flex;
   grid-template-columns: 66% 33%;
 }
-.signIn {
-  text-align: center;
-  display: inline-block;
-  flex-shrink: 1;
-  border-style: : solid;
-  background-color: black;
-  opacity: .80;
-  flex-basis: auto;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(2, auto);
-}
 
-/* .input{
+.input{
   width: 360px;
   height: 55px;
-} */
+}
+
+::placeholder {
+  text-align: center;
+  color: grey;
+  opacity: .8;
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
+}
 
 #conpass{
   border-style: solid;
@@ -63,6 +57,11 @@
   color: white;
 }
 
+#createButton {
+  height: 55px;
+  width: 370px;
+}
+
 body {
   background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
   background-position: center;
@@ -70,19 +69,10 @@ body {
 
 h1 {
   margin-left: 255px;
-  margin-top: 100px;
+  margin-top: 75px;
   font-size: 80px;
   font-family: 'Cabin', sans-serif;
   color: white;
-}
-h2 {
-  margin-top: 200px;
-  margin-bottom: 80px;
-  margin-left: 140px;
-  font-size: 60px;
-  font-family: 'Cabin', sans-serif;
-  color: white;
-  width: 200px;
 }
 
 input[type="submit"] {
@@ -93,30 +83,10 @@ input[type="submit"] {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 input[type="email"] {
   margin-top: 0px;
 
-}
-
-#createButton {
-  height: 55px;
-  width: 370px;
-}
-/* input[type="radio"] {
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  break-before: always;
-  cursor: pointer;
-} */
-
-::placeholder {
-  text-align: center;
-  color: grey;
-  opacity: .8;
-  font-size: 15px;
-  font-family: 'Cabin', sans-serif;
 }
