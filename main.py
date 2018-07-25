@@ -62,6 +62,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             else:
                 ###NEED CREATE ACCOUNT TEMPLATE AND NAME
                 createAccountTemplate = jinja_env.get_template("templates/welcome.html")
+                signOut = str(users.create_logout_url('/'))
                 self.response.write(createAccountTemplate.render({
                 'signOut': users.create_logout_url('/')
                 }))
@@ -70,7 +71,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         else:
             homepageLoginTemplate = jinja_env.get_template("templates/signin.html")
             self.response.write(homepageLoginTemplate.render({
-            'signIn': users.create_login_url(r'/')
+            'signIn': users.create_login_url('/')
             }))
 
     def post(self):
