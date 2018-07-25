@@ -30,68 +30,87 @@ jinja_env = jinja2.Environment(
 
 
 ##BASIC MAIN HANDLER, WILL CHANGE TO HOMEPAGE
-class MainHandler(webapp2.RequestHandler):
+class HomepageLoginHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write("This is the homepage.")
+        user = users.get_current_user()
+
+        # If the user is logged in...
+        if user:
+            ###NEED LORENZO TO CREATE EDIT TEMPLATE
+            email_address = user.nickname()
+            existingUser = UserProfile.get_by_id(user.user_id())
 
 
-##CREATE A NEW ACCOUNT
-class CreateAccountHandler(webapp2.RequestHandler):
-    def get(self):
-        createAnAccountTemplate = jinja_env.get_template("templates/welcome.html")
-        self.response.write(createAnAccountTemplate.render())
+            #If the user has previously been to our site, we greet them
+            if existingUser:
+                editUserProfileTemplate = jinja_env.get_template("templates/editUserProfile.html")
+                html = editUserProfileTemplate.render({
+                    'firstName': userProfile.firstName,
+                    'lastName': userProfile.lastName,
+                    'userName': userProfile.userName,
+                    'email': userProfile.email,
+                    'password': userProfile.password,
+                    'phone': userProfile.phone,
+                    'gender': userProfile.gender,
+                    'twitterHandle': userProfile.twitterHandle,
+                    'facebookHandle': userProfile.facebookHandle,
+                    'linkedinHandle': userProfile.linkedinHandle,
+                    'signOut': users.create_logout_url('/')
+                })
+                self.response.write(html)
 
-        #collecting HTML input in the account creation process to input in Data Store
-    def post(self):
-        userProfile = userProfileModel.UserProfile()
+            #If the user hasn't been to our site, we ask them to sign up
+            else:
+                ###NEED CREATE ACCOUNT TEMPLATE AND NAME
+                createAccountTempalte = jinja_env.get_template("templates/createAccount.html")
+                self.response.write(createAccountTemplate.render({
+                'signOut': users.create_logout_url('/')
+                }))
 
-        userAccountCheckQuery = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email'))
-        userProfile = userAccountCheckQuery.get()
+        #Otherwise, the user isn't logged in
+        else:
+            homepageLoginTemplate = jinja_env.get_template("templates/welcome.html")
+            self.response.write(homepageLoginTemplate.render({
+            'signIn': users.create_login_url(r'/')
+            }))
 
-class SignInHandler(webapp2.RequestHandler):
-    def get (self):
-        signInTemplate = jinja_env.get_template("templates/signIn.html")
-        html = self.response.write(signInTemplate.render())
+        def post(self):
+            user = users.get_current_user()
 
-        # if str(userProfile)=="None":
-        #     self.response.write("Sorry. An account with this email on file does not exist.")
-        # else:
-        #     if UserProfile.password == self.request.get('userLogin-password')):
-        #
-        #
-        #
-        # query = UserProfile.query().filter(UserProfile.email == self.request.get('userLogin-email')
-        # if()
-        #     if(UserProfile.query().filter(UserProfile.password == self.request.get('userLogin-password')))
-        #
-        # userProfile.firstName = self.request.get('user-firstname')
-        # userProfile.lastName = self.request.get('user-lastname')
-        # userProfile.userName = self.request.get('user-username')
-        # userProfile.email = self.request.get('user-email')
-        # userProfile.password = self.request.get('user-password')
-        # userProfile.phone = self.request.get('user-phone')
-        # userProfile.gender = self.request.get('user-gender')
-        # userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
-        # userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
-        # userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
-        #
-        # displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
-        #
-        # html = displayUserProfileTemplate.render({
-        #     'firstName': userProfile.firstName,
-        #     'lastName': userProfile.lastName,
-        #     'userName': userProfile.userName,
-        #     'email': userProfile.email,
-        #     'password': userProfile.password,
-        #     'phone': userProfile.phone,
-        #     'gender': userProfile.gender,
-        #     'twitterHandle': userProfile.twitterHandle,
-        #     'facebookHandle': userProfile.facebookHandle,
-        #     'linkedinHandle': userProfile.linkedinHandle
-        # })
+            if not user:
+                self.error(500)
+                return
 
-        self.response.write(html)
-        # userProfile.put()
+            userProfile.id = user_id()
+            userProfile.firstName = self.request.get('user-firstname')
+            userProfile.lastName = self.request.get('user-lastname')
+            userProfile.userName = self.request.get('user-username')
+            userProfile.email = self.request.get('user-email')
+            userProfile.password = self.request.get('user-password')
+            userProfile.phone = self.request.get('user-phone')
+            userProfile.gender = self.request.get('user-gender')
+            userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
+            userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
+            userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
+
+            userProfile.put()
+
+            displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
+
+            html = displayUserProfileTemplate.render({
+                'firstName': userProfile.firstName,
+                'lastName': userProfile.lastName,
+                'userName': userProfile.userName,
+                'email': userProfile.email,
+                'password': userProfile.password,
+                'phone': userProfile.phone,
+                'twitterHandle': userProfile.twitterHandle,
+                'facebookHandle': userProfile.facebookHandle,
+                'linkedinHandle': userProfile.linkedinHandle
+            })
+
+            self.response.write(html)
+
 
 
 ##FIND AND DISPLAY A USER ACCOUNT
@@ -121,9 +140,9 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'linkedinHandle': userProfile.linkedinHandle})
             self.response.write(html)
 
+
+
 app = webapp2.WSGIApplication([
-    (r'/', MainHandler),
-    (r'/createaccount', CreateAccountHandler),
-    (r'/user/(\w+)', ShowUserHandler),
-    (r'/signin', SignInHandler)
+    (r'/', HomepageLoginHandler),
+    (r'/(\w+)', ShowUserHandler)
 ], debug=True)
