@@ -27,6 +27,11 @@
   font-family: 'Cabin', sans-serif;
 }
 
+.button {
+  height: 100px;
+  width: 100px;
+}
+
 #conpass{
   border-style: solid;
   border-color: white;
@@ -51,16 +56,6 @@
   border-radius: 0px 0px 15px 15px;
 }
 
-#signIn {
-  font-size: 60px;
-  font-family: 'Cabin', sans-serif;
-  color: white;
-}
-
-#createButton {
-  height: 55px;
-  width: 370px;
-}
 
 body {
   background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
@@ -75,18 +70,55 @@ h1 {
   color: white;
 }
 
-input[type="submit"] {
-  margin-top: 20px;
-  cursor: pointer;
-  height: 30px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-}
-
 input[type="email"] {
   margin-top: 0px;
-
 }
+
+input[type="button"]{
+ -moz-appearance: none;
+ -webkit-appearance: none;
+ appearance: none;
+ height: 55px;
+ width: 365px;
+ border-style: solid;
+ border-radius: 0px 0px 15px 15px;
+ border-color: grey;
+ color: white;
+ background-color: grey;
+ font-size: 15px;
+ font-family: 'Cabin', sans-serif;
+}
+
+input[type="submit"]{
+ -moz-appearance: none;
+ -webkit-appearance: none;
+ appearance: none;
+ height: 55px;
+ width: 365px;
+ border-style: solid;
+ border-radius: 15px 15px 0px 0px;
+ border-color: grey;
+ margin-top: 20px;
+ color: white;
+ background-color: grey;
+ border-bottom-color: white;
+ font-size: 15px;
+ font-family: 'Cabin', sans-serif;
+}
+input[type="submit"]:active{
+  background-color: white;
+  color: grey;
+  border-color: white;
+}
+input[type="button"]:active{
+  background-color: white;
+  color: grey;
+  border-color: white;
+}
+
+/* input[type="button"]:active{
+  background-color: red;
+}
+input[type="submit"]:active{
+  background-color: red;
+} */
