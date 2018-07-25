@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 body {
-
    background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
    background-size: cover;
    background-position: center;
-
  }
 
 .Profile {
@@ -46,19 +44,20 @@ h1 {
  }
 img {
    display: block;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 30px;
-     /* width: 50%; */
-
-     border-style: solid;
-     border-color: rgb(46, 254, 7);
-     border-radius: 150px;
+   height: 250px;
+   width: 250px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 30px;
+   border-style: solid;
+   border-color: white;
+   border-radius: 150px;
  }
  button[type="button"] {
    font-size: 20px;
    font-family: 'Cabin', sans-serif;
  }
+ 
  p {
    font-size: 25px;
    font-family: 'Cabin', sans-serif;

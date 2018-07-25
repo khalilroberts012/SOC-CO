@@ -16,8 +16,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sign In</title>
     <link rel="stylesheet" type="text/css" href="app-stylesheets/welcome.css">
+    <title>Sign In</title>
   </head>
   <body>
     <div id="title">
@@ -32,9 +32,11 @@
             <input type="email" placeholder="Email" name="user-email" class="input">
             <input type="password" placeholder="Password" name="user-password" class="input">
             <input type="password" placeholder="Confirm Password" name="user-comfirmpassword" class="input" id="conpass">
+            <div class="button">
+                <input type="submit" value="Create Account" class="input" id="button">
+                <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit"></a>
+            </div>
           </div>
-          <input type="submit" value="Create Account" class="input" id="createButton">
-          <!-- <input type="submit" value="Sign Out" class="input" id="createButton">{{signOut}}</input> -->
       </div>
     </form>
   </body>
