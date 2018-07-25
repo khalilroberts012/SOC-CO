@@ -28,6 +28,12 @@ jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+class Image(webapp2.RequestHandler):
+    def get(self):
+        key = ndb.Key("Data", int(self.request.get("id")))
+        data = key.get()
+        self.response.headers['Content-Type'] = 'image/jpg'
+        self.response.write(data.image)
 
 ##BASIC MAIN HANDLER, WILL CHANGE TO HOMEPAGE
 class HomepageLoginHandler(webapp2.RequestHandler):
@@ -54,6 +60,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
                     'twitterHandle': userProfile.twitterHandle,
                     'facebookHandle': userProfile.facebookHandle,
                     'linkedinHandle': userProfile.linkedinHandle,
+                    'image' : userProfile.image,
                     'signOut': users.create_logout_url('/')
                 })
                 self.response.write(html)
@@ -90,6 +97,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
         userProfile.gender = self.request.get('user-gender')
+        userProfile.image = self.request.get('image')
         userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
         userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
         userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
@@ -105,6 +113,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'email': userProfile.email,
             'password': userProfile.password,
             'phone': userProfile.phone,
+            'image' : userProfile.image,
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
             'linkedinHandle': userProfile.linkedinHandle
@@ -136,6 +145,7 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'email': userProfile.email,
                 'password': userProfile.password,
                 'phone': userProfile.phone,
+                'image' : userProfile.image.key.id(),
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle})

@@ -22,6 +22,7 @@ class UserProfile(ndb.Model):
     userName = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     password = ndb.StringProperty(required=True)
+    image = ndb.BlobProperty(required=False)
     # phone = ndb.StringProperty(required=True)
     # twitterHandle = ndb.StringProperty(required=True)
     # facebookHandle = ndb.StringProperty(required=True)
