@@ -19,6 +19,7 @@ import os
 import jinja2
 import userProfileModel
 from userProfileModel import UserProfile
+from google.appengine.api import users
 
 
 #remember, you can get this by searching for jinja2 google app engine
