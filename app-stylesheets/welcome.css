@@ -1,6 +1,5 @@
 .create {
-  /* float: left;
-  display: inline-block; */
+
   /* height: 150px;
   width: 50px; */
   margin-left: 375px;
@@ -15,6 +14,18 @@
 .grid {
   display: flex;
   grid-template-columns: 66% 33%;
+}
+.signIn {
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 1;
+  border-style: : solid;
+  background-color: black;
+  opacity: .80;
+  flex-basis: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, auto);
 }
 
 /* .input{
@@ -71,9 +82,18 @@ h2 {
   font-size: 60px;
   font-family: 'Cabin', sans-serif;
   color: white;
-  opacity: 1;
   width: 200px;
 }
+
+input[type="submit"] {
+  margin-top: 20px;
+  cursor: pointer;
+  height: 30px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px; }
 
 input[type="email"] {
   margin-top: 0px;
