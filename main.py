@@ -73,42 +73,43 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'signIn': users.create_login_url(r'/')
             }))
 
-        def post(self):
-            user = users.get_current_user()
+    def post(self):
+        user = users.get_current_user()
+        userProfile = userProfileModel.UserProfile()
 
-            if not user:
-                self.error(500)
-                return
+        if not user:
+            self.error(500)
+            return
 
-            userProfile.id = user_id()
-            userProfile.firstName = self.request.get('user-firstname')
-            userProfile.lastName = self.request.get('user-lastname')
-            userProfile.userName = self.request.get('user-username')
-            userProfile.email = self.request.get('user-email')
-            userProfile.password = self.request.get('user-password')
-            userProfile.phone = self.request.get('user-phone')
-            userProfile.gender = self.request.get('user-gender')
-            userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
-            userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
-            userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
+        userProfile.id = user.user_id()
+        userProfile.firstName = self.request.get('user-firstname')
+        userProfile.lastName = self.request.get('user-lastname')
+        userProfile.userName = self.request.get('user-username')
+        userProfile.email = self.request.get('user-email')
+        userProfile.password = self.request.get('user-password')
+        userProfile.phone = self.request.get('user-phone')
+        userProfile.gender = self.request.get('user-gender')
+        userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
+        userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
+        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
 
-            userProfile.put()
+        userProfile.put()
 
-            displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
+        displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
 
-            html = displayUserProfileTemplate.render({
-                'firstName': userProfile.firstName,
-                'lastName': userProfile.lastName,
-                'userName': userProfile.userName,
-                'email': userProfile.email,
-                'password': userProfile.password,
-                'phone': userProfile.phone,
-                'twitterHandle': userProfile.twitterHandle,
-                'facebookHandle': userProfile.facebookHandle,
-                'linkedinHandle': userProfile.linkedinHandle
-            })
+        html = displayUserProfileTemplate.render({
+            'firstName': userProfile.firstName,
+            'lastName': userProfile.lastName,
+            'userName': userProfile.userName,
+            'email': userProfile.email,
+            'password': userProfile.password,
+            'phone': userProfile.phone,
+            'twitterHandle': userProfile.twitterHandle,
+            'facebookHandle': userProfile.facebookHandle,
+            'linkedinHandle': userProfile.linkedinHandle
+        })
 
-            self.response.write(html)
+        self.response.write(html)
 
 
 
