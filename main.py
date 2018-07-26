@@ -37,13 +37,12 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
         # If the user is logged in...
         if user:
-            email_address = user.nickname()
             existingUser = UserProfile.get_by_id(user.user_id())
 
             #If the user has previously been to our site, we greet them
             if existingUser:
-                editUserProfileTemplate = jinja_env.get_template("templates/results.html")
-                html = editUserProfileTemplate.render({
+                UserProfileTemplate = jinja_env.get_template("templates/results.html")
+                html = UserProfileTemplate.render({
                     'firstName': userProfile.firstName,
                     'lastName': userProfile.lastName,
                     'userName': userProfile.userName,
@@ -54,7 +53,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
                     'twitterHandle': userProfile.twitterHandle,
                     'facebookHandle': userProfile.facebookHandle,
                     'linkedinHandle': userProfile.linkedinHandle,
-                    'profilePicture': userProfile.profilePicture,
+                    'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
                     'signOut': users.create_logout_url('/')
                 })
                 self.response.write(html)
@@ -90,15 +89,13 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
         userProfile.gender = self.request.get('user-gender')
-        userProfile.profilePicture = (str(self.request.get('image')))
+        userProfile.profilePicture = images.resize(self.request.get('image'), 700, 700)
         userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
         userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
         userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput'))
         userProfile.put()
 
-
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
-
 
         html = displayUserProfileTemplate.render({
             'firstName': userProfile.firstName,
@@ -114,6 +111,12 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         })
 
         self.response.write(html)
+
+
+
+
+##FIND AND DISPLAY A USER ACCOUNT
+
 
 ##FIND AND DISPLAY A USER ACCOUNT
 class ShowUserHandler(webapp2.RequestHandler):
@@ -140,7 +143,11 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
+<<<<<<< HEAD
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
+=======
+                'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
+>>>>>>> 28c726a11a53ce2261d71bfea970428c1ac9e24d
                 })
             self.response.write(html)
 
