@@ -7,34 +7,26 @@
 }
 
 #topnav{
-  background-color: #333;
-  color: #f2f2f2;
+  background-color: #3D434C;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 14px 16px;
+  height: 50px;
   text-decoration: none;
   font-size: 20px;
   list-style-type: none;
   position: sticky;
-  top: 0;
   width: 100%;
-  border: 1px solid #e7e7e7
+  border: 1px solid #e7e7e7;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
   }
 
 #topnav :hover {
-  text-decoration: underline;
   color: white;
-
 }
-
- body {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png"),
-  url("https://cdn.allwallpaper.in/wallpapers/1920x1200/10065/steel-textures-wood-1920x1200-wallpaper.jpg");
-  background-position: center;
-  background-repeat: no-repeat,repeat;
- }
 
  .description {
    color: green;
@@ -53,7 +45,24 @@
    font-weight: bold;
  }
 
- img {
+ #socialpic {
    width: 300px;
    height: 175px;
+   border-radius: 20px;
+ }
+
+ body {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png"),
+  url("https://cdn.allwallpaper.in/wallpapers/1920x1200/10065/steel-textures-wood-1920x1200-wallpaper.jpg");
+  background-position: center;
+  background-repeat: no-repeat,repeat;
+ }
+
+ footer {
+  background-color: #3D434C;
+  text-align: center;
+ }
+
+ form {
+  color: blue;
  }
