@@ -90,7 +90,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         userProfile.profilePicture = self.request.get('image')
         userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
         userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
-        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput'))
+        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput') + "/")
         userProfile.put()
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")

@@ -141,10 +141,3 @@ input[type="button"]:active{
   color: grey;
   border-color: white;
 }
-
-/* input[type="button"]:active{
-  background-color: red;
-}
-input[type="submit"]:active{
-  background-color: red;
-} */
