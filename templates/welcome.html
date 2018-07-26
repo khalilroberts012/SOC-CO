@@ -22,20 +22,26 @@
   <body>
     <div id="title">
       <h1>Create Account</h1>
+
     </div>
+
     <form method=POST enctype="multipart/form-data">
       <div class='grid'>
+
           <div class="create">
               <input type="name" placeholder="Firstname" name="user-firstname" class="input" id="first">
               <input type="name" placeholder="Lastname" name="user-lastname" class="input" id="last">
               <input type="name" placeholder="Username" name="user-username" class="input" id="userName">
+              <input type="file" value="add image" name="image" accept="image/*" class="input" id="file">
               <input type="email" placeholder="Email" name="user-email" class="input" id="email">
               <input type="password" placeholder="Password" name="user-password" class="input" id="password">
               <input type="password" placeholder="Confirm Password" name="user-comfirmpassword" class="input" id="conpass">
+
             <div class="blank">
-              Submit an image: <input type="file" name="image" accept="image/*" id="file">
             <input type="submit" value="Create Account" class="input" id="button">
             <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit"></a>
+
+
           </div>
         </div>
       </div>

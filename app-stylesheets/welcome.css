@@ -6,7 +6,7 @@
   flex-basis: auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(7, auto);
 }
 
 .grid {
@@ -55,6 +55,16 @@
   border-bottom-color: gray;
   text-align: center;
   font-size: 15px;
+}
+
+#file{
+  border-style: solid;
+  border-color: white;
+  border-bottom-color: gray;
+  background-color: white;
+  text-align: center;
+  font-size: 15px;
+
 }
 
 #email {
@@ -141,10 +151,3 @@ input[type="button"]:active{
   color: grey;
   border-color: white;
 }
-
-/* input[type="button"]:active{
-  background-color: red;
-}
-input[type="submit"]:active{
-  background-color: red;
-} */

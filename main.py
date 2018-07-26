@@ -43,17 +43,16 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             if existingUser:
                 UserProfileTemplate = jinja_env.get_template("templates/results.html")
                 html = UserProfileTemplate.render({
-                    'firstName': userProfile.firstName,
-                    'lastName': userProfile.lastName,
-                    'userName': userProfile.userName,
-                    'email': userProfile.email,
-                    'password': userProfile.password,
-                    'phone': userProfile.phone,
-                    'gender': userProfile.gender,
-                    'twitterHandle': userProfile.twitterHandle,
-                    'facebookHandle': userProfile.facebookHandle,
-                    'linkedinHandle': userProfile.linkedinHandle,
-                    'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
+                    'firstName': existingUser.firstName,
+                    'lastName': existingUser.lastName,
+                    'userName': existingUser.userName,
+                    'email': existingUser.email,
+                    'password': existingUser.password,
+                    'phone': existingUser.phone,
+                    'twitterHandle': existingUser.twitterHandle,
+                    'facebookHandle': existingUser.facebookHandle,
+                    'linkedinHandle': existingUser.linkedinHandle,
+                    'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
                     'signOut': users.create_logout_url('/')
                 })
                 self.response.write(html)
@@ -75,24 +74,22 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
-        userProfile = userProfileModel.UserProfile()
+        userProfile = userProfileModel.UserProfile(id=user.user_id())
 
         if not user:
             self.error(500)
             return
 
-        userProfile.user_id = user.user_id()
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
-        userProfile.userName = self.request.get('user-username')
+        userProfile.userName = (self.request.get('user-username')).lower()
         userProfile.email = self.request.get('user-email')
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
-        userProfile.gender = self.request.get('user-gender')
-        userProfile.profilePicture = images.resize(self.request.get('image'), 700, 700)
+        userProfile.profilePicture = self.request.get('image')
         userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
         userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
-        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput'))
+        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput') + "/")
         userProfile.put()
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
@@ -115,7 +112,32 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
 
 
-##FIND AND DISPLAY A USER ACCOUNT
+##EDIT A USER ACCOUNT
+class EditPageHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+
+        # If the user is logged in...
+        if user:
+            existingUser = UserProfile.get_by_id(user.user_id())
+
+            #If the user has previously been to our site, we greet them
+            if existingUser:
+                UserProfileTemplate = jinja_env.get_template("templates/results.html")
+                html = UserProfileTemplate.render({
+                    'firstName': existingUser.firstName,
+                    'lastName': existingUser.lastName,
+                    'userName': existingUser.userName,
+                    'email': existingUser.email,
+                    'password': existingUser.password,
+                    'phone': existingUser.phone,
+                    'twitterHandle': existingUser.twitterHandle,
+                    'facebookHandle': existingUser.facebookHandle,
+                    'linkedinHandle': existingUser.linkedinHandle,
+                    'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
+                    'signOut': users.create_logout_url('/')
+                })
+                self.response.write(html)
 
 
 ##FIND AND DISPLAY A USER ACCOUNT
@@ -123,7 +145,7 @@ class ShowUserHandler(webapp2.RequestHandler):
     def get(self, userName):
 
          userProfile = userProfileModel.UserProfile()
-         userNameQuery = UserProfile.query().filter(UserProfile.userName == userName)
+         userNameQuery = UserProfile.query().filter(UserProfile.userName == userName.lower())
          userProfile = userNameQuery.get()
 
          #if the userName is not found in the query
@@ -143,10 +165,14 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
+<<<<<<< HEAD
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
+=======
+>>>>>>> a68c59f5266dd9c11b4891a65ae889701bc72440
                 'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
                 })
             self.response.write(html)
+
 
 ##UPLOADING AN IMAGE
 class Image(webapp2.RequestHandler):
