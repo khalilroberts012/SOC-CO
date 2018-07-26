@@ -139,7 +139,7 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'phone': userProfile.phone,
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
-                'linkedinHandle': userProfile.linkedinHandle
+                'linkedinHandle': userProfile.linkedinHandle,
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
                 })
             self.response.write(html)
