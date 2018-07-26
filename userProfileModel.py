@@ -17,7 +17,6 @@
 from google.appengine.ext import ndb
 
 class UserProfile(ndb.Model):
-    user_id = ndb.StringProperty(required=False)
     firstName = ndb.StringProperty(required=True)
     lastName = ndb.StringProperty(required=True)
     userName = ndb.StringProperty(required=True)
