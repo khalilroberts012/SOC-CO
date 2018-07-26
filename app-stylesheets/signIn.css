@@ -25,7 +25,7 @@
   }
 
 #topnav :hover {
-  color: white;
+  color: green;
 }
 
  .description {
@@ -65,4 +65,5 @@
 
  form {
   color: blue;
+  height: 20px;
  }
