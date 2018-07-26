@@ -22,7 +22,6 @@ body {
 .create1{
   flex-shrink: 1;
   flex-basis: auto;
-
   display: grid;
   grid-template-columns: 2;
   grid-template-rows: repeat(4, auto);
@@ -86,10 +85,9 @@ h1 {
  }
 img {
    display: block;
-   height: 700px;
-   width: 700px;
+   height: 300px;
+   width: 300px;
    margin-left: 50px;
-
    margin-top: 30px;
    margin-bottom: 20px;
    border-style: solid;
