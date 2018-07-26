@@ -78,7 +78,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
         #Otherwise, the user isn't logged in
         else:
-            homepageLoginTemplate = jinja_env.get_template("/templates/welcome.html")
+            homepageLoginTemplate = jinja_env.get_template("/templates/signIn.html")
             self.response.write(homepageLoginTemplate.render({
             'signIn': users.create_login_url('/')
             }))
