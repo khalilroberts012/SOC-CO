@@ -24,8 +24,13 @@
     <body>
 
       <div class="Profile">
-        <img src="/img?id=">
+        <form action="/sign?%s"
+              enctype="multipart/form-data"
+              method="post">
+        <div><label>Profile Picture:</label></div>
         <input type="file" name="image" accept="image/*">
+        <img class='picture' src='/img?id={{imageID}}'>
+
         <h1>{{firstName}} {{lastName}}</h1>
         <div id="center">
         <button type="button" id="button">Add on all</button>

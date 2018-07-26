@@ -26,4 +26,4 @@ class UserProfile(ndb.Model):
     twitterHandle = ndb.StringProperty(required=False)
     facebookHandle = ndb.StringProperty(required=False)
     linkedinHandle = ndb.StringProperty(required=False)
-    profilePicture = ndb.BlobProperty(required=False)
+    image = ndb.BlobProperty(required=False)
