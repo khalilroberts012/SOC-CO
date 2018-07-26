@@ -82,7 +82,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
-        userProfile.userName = self.request.get('user-username')
+        userProfile.userName = (self.request.get('user-username')).lower()
         userProfile.email = self.request.get('user-email')
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
@@ -145,7 +145,7 @@ class ShowUserHandler(webapp2.RequestHandler):
     def get(self, userName):
 
          userProfile = userProfileModel.UserProfile()
-         userNameQuery = UserProfile.query().filter(UserProfile.userName == userName)
+         userNameQuery = UserProfile.query().filter(UserProfile.userName == userName.lower())
          userProfile = userNameQuery.get()
 
          #if the userName is not found in the query
