@@ -89,7 +89,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
         userProfile.gender = self.request.get('user-gender')
-        userProfile.profilePicture = images.resize(self.request.get('image'), 700, 700)
+        userProfile.profilePicture = self.request.get('image')
         userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
         userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
         userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput'))
