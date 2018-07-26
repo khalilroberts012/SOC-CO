@@ -143,11 +143,8 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
-<<<<<<< HEAD
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
-=======
                 'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
->>>>>>> 28c726a11a53ce2261d71bfea970428c1ac9e24d
                 })
             self.response.write(html)
 

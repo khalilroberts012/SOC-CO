@@ -1,5 +1,11 @@
 
-#title {
+#logo {
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 90px;
+}
+
+#heading {
   color: Green;
   text-align: left;
   font-size: 20px;
@@ -28,6 +34,13 @@
   color: green;
 }
 
+#socialpic {
+  width: 300px;
+  height: 175px;
+  border-radius: 20px;
+  margin-left: 5em;
+}
+
  .description {
    color: green;
    font-family: 'Cabin', sans-serif;
@@ -38,29 +51,30 @@
  }
 
  .description2{
-   color: white;
+   color: gray;
    font-family: 'Cabin', sans-serif;
    margin-left: 4em;
    font-size: 20px;
    font-weight: bold;
  }
 
- #socialpic {
-   width: 300px;
-   height: 175px;
-   border-radius: 20px;
+ .footer {
+  background-color: #3D434C;
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
  }
 
  body {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png"),
-  url("https://cdn.allwallpaper.in/wallpapers/1920x1200/10065/steel-textures-wood-1920x1200-wallpaper.jpg");
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
   background-position: center;
   background-repeat: no-repeat,repeat;
  }
 
- footer {
-  background-color: #3D434C;
-  text-align: center;
+ h1 {
+
  }
 
  form {
