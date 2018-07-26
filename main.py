@@ -21,6 +21,7 @@ import userProfileModel
 from userProfileModel import UserProfile
 from google.appengine.api import users
 from google.appengine.api import images
+from google.appengine.ext import ndb
 
 
 #remember, you can get this by searching for jinja2 google app engine
@@ -29,13 +30,6 @@ jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class Image(webapp2.RequestHandler):
-    def get(self):
-        key = ndb.Key("Data", int(self.request.get("id")))
-        data = key.get()
-        self.response.headers['Content-Type'] = 'image/jpg'
-        self.response.write(data.image)
-
 ##BASIC MAIN HANDLER, WILL CHANGE TO HOMEPAGE
 class HomepageLoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -43,14 +37,12 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
         # If the user is logged in...
         if user:
-            ###NEED LORENZO TO CREATE EDIT TEMPLATE
             email_address = user.nickname()
             existingUser = UserProfile.get_by_id(user.user_id())
 
             #If the user has previously been to our site, we greet them
             if existingUser:
-
-                editUserProfileTemplate = jinja_env.get_template("templates/editUserProfile.html")
+                editUserProfileTemplate = jinja_env.get_template("templates/results.html")
                 html = editUserProfileTemplate.render({
                     'firstName': userProfile.firstName,
                     'lastName': userProfile.lastName,
@@ -62,7 +54,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
                     'twitterHandle': userProfile.twitterHandle,
                     'facebookHandle': userProfile.facebookHandle,
                     'linkedinHandle': userProfile.linkedinHandle,
-                    'imageID' : data.key.urlsafe(),
+                    'profilePicture': userProfile.profilePicture,
                     'signOut': users.create_logout_url('/')
                 })
                 self.response.write(html)
@@ -71,9 +63,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             else:
                 ###NEED CREATE ACCOUNT TEMPLATE AND NAME
                 createAccountTemplate = jinja_env.get_template("/templates/welcome.html")
-                signOut = str(users.create_logout_url('/'))
                 self.response.write(createAccountTemplate.render({
-                'signOut': users.create_logout_url('/')
+                'signOut': str(users.create_logout_url('/'))
                 }))
 
         #Otherwise, the user isn't logged in
@@ -91,7 +82,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             self.error(500)
             return
 
-        userProfile.id = user.user_id()
+        userProfile.user_id = user.user_id()
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
         userProfile.userName = self.request.get('user-username')
@@ -99,10 +90,12 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         userProfile.password = self.request.get('user-password')
         userProfile.phone = self.request.get('user-phone')
         userProfile.gender = self.request.get('user-gender')
-        userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('user-twitterHandle'))
-        userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('user-facebookHandle'))
-        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('user-linkedinHandle'))
+        userProfile.profilePicture = (str(self.request.get('image')))
+        userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
+        userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
+        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput'))
         userProfile.put()
+
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
 
@@ -114,16 +107,13 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'email': userProfile.email,
             'password': userProfile.password,
             'phone': userProfile.phone,
-            'imageID' : userProfile.image,
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
             'linkedinHandle': userProfile.linkedinHandle,
-            'imageID': userProfile.key.urlsafe()
+            'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe()))
         })
 
         self.response.write(html)
-
-
 
 ##FIND AND DISPLAY A USER ACCOUNT
 class ShowUserHandler(webapp2.RequestHandler):
@@ -147,19 +137,24 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'email': userProfile.email,
                 'password': userProfile.password,
                 'phone': userProfile.phone,
-                'imageID' : userProfile.key.urlsafe(),
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
-                'linkedinHandle': userProfile.linkedinHandle})
+                'linkedinHandle': userProfile.linkedinHandle
+                'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
+                })
             self.response.write(html)
 
 ##UPLOADING AN IMAGE
 class Image(webapp2.RequestHandler):
     def get(self):
-        key = ndb.Key("Data", int(self.request.get("id")))
+        key = ndb.Key(urlsafe=self.request.get('id'))
         data = key.get()
-        self.response.headers['Content-Type'] = 'image.jpg'
-        self.response.write(data.image)
+
+        if data.profilePicture:
+            self.response.headers['Content-Type'] = 'image/jpg'
+            self.response.out.write(data.profilePicture)
+        else:
+            self.response.out.write('No image')
 
 
 app = webapp2.WSGIApplication([
