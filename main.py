@@ -41,7 +41,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
             #If the user has previously been to our site, we greet them
             if existingUser:
-                UserProfileTemplate = jinja_env.get_template("templates/profile.html")
+                UserProfileTemplate = jinja_env.get_template("templates/results.html")
                 html = UserProfileTemplate.render({
                     'firstName': existingUser.firstName,
                     'lastName': existingUser.lastName,
@@ -80,7 +80,6 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             self.error(500)
             return
 
-        # userProfile.id = user.user_id()
         userProfile.firstName = self.request.get('user-firstname')
         userProfile.lastName = self.request.get('user-lastname')
         userProfile.userName = self.request.get('user-username')
