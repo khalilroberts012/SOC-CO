@@ -13,70 +13,102 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+html {
+
+}
+
 body {
-   background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
-   background-size: cover;
-   background-position: center;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
+  background-size: cover;
+  background-position: center;
  }
+.create1{
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: repeat(4, auto);
+}
 
 .create {
-   background: black;
-   opacity: .80;
    width: 400px;
    height: 700px;
-   margin: 0 auto;
-   margin-top: 0px;
+   margin-top: 40px;
    margin-bottom: 0px;
-   padding: 100px 50px 100px 50px;
+   margin-left: 50px;
+   border-style: solid;
    flex-shrink: 1;
    flex-basis: auto;
    display: grid;
    grid-template-columns: auto;
-   grid-template-rows: repeat(9, auto);
+   grid-template-rows: repeat(4, auto);
  }
 
+::placeholder {
+  color: grey;
+  text-align: center;
+}
 
-.grid {
-  height: 860px;
+.grid1 {
+  float: left;
+  height: 375px;
   width: 350px;
   display: flex;
   grid-template-columns: 66% 33%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.grid {
+  text-align: left;
+  float: right;
   background-color: black;
   opacity: .8;
+  height: 860px;
+  width: 600px;
+  display: flex;
+  grid-template-columns: 66% 33%;
   margin: 0 auto;
   margin-top: -10px;
   margin-bottom: -10px;
+  margin-right: -25px;
 }
 
 h1 {
    font-size: 60px;
    font-family: 'Cabin', sans-serif;
    color: white;
-   text-align: center;
-   margin-top: 0px;
+   text-align: left;
+   margin-top: 50px;
+   margin-bottom: 0px;
+   margin-right: 100px;
+   margin-left: 30px;
 
  }
 img {
    display: block;
-   height: 300px;
-   width: 300px;
-   margin-left: 20px;
-   margin-right: auto;
-   margin-top: 35px;
-   margin-bottom: 30px;
+   height: 700px;
+   width: 700px;
+   margin-left: 50px;
+
+   margin-top: 30px;
+   margin-bottom: 20px;
    border-style: solid;
    border-color: white;
-   border-radius: 150px;
+   border-radius: 350px;
  }
 
  p {
    font-size: 25px;
    font-family: 'Cabin', sans-serif;
    color: white;
-   text-align: center;
+   text-align: left;
    margin-top: 0px;
-
+   margin-left: 30px;
  }
+
  #button {
    font-size: 20px;
    font-family: 'Cabin', sans-serif;
@@ -87,37 +119,19 @@ img {
    color: grey;
    border-bottom-color: grey;
    border-top-color: grey;
+   border-radius: 15px 15px 15px 15px;
+   margin-left: 30px;
  }
 
- /* .wrapper {
-   min-height: 100%;
+#userName {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 
-
-   margin-bottom: 0px;
- }
- .footer,
- .push {
-   height: 60px;
-
-   margin: 0px -10px 0px -10px;
-   background: black;
-   opacity: .80;
- } */
-
- #linkedin {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 90px;
-  width: 350px;
-  color: grey;
-  border-style: solid;
-  background-color: white;
-  border-bottom-color: grey;
-  border-top-color: grey;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
- }
+#email {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
 
  #twitter {
   -moz-appearance: none;
@@ -125,13 +139,33 @@ img {
   appearance: none;
   height: 90px;
   width: 350px;
-  color: grey;
+  color: white;
   border-style: solid;
-  background-color: white;
-  border-bottom-color: grey;
-  border-top-color: grey;
+  background-color: #33CCFF;
+  border-bottom-color: white;
   font-size: 20px;
   font-family: 'Cabin', sans-serif;
+  border-radius: 15px 15px 15px 15px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+ }
+
+ #linkedin {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 90px;
+  width: 350px;
+  color: white;
+  border-style: solid;
+  background-color: #4875B4;
+  border-bottom-color: white;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+  border-radius: 15px 15px 15px 15px;
+  margin-left: 30px;
+  margin-bottom: 10px;
  }
 
  #facebook {
@@ -142,32 +176,19 @@ img {
   width: 350px;
   border-style: solid;
   border-color: grey;
-  color: grey;
-  background-color: white;
+  color: white;
+  background-color: #3B5998;
   border-bottom-color: grey;
   border-top-color: grey;
   font-size: 20px;
   font-family: 'Cabin', sans-serif;
+  border-radius: 15px 15px 15px 15px;
+  margin-left: 30px;
+  margin-bottom: 10px;
  }
-#file {
-  height: 75px;
-  width: 344px;
-  border-style: solid;
+
+input[type="button"]:active{
+  background-color: white;
+  color: grey;
   border-color: white;
-  color: grey;
-  background-color: white;
-  border-bottom-color: grey;
-  border-top-color: grey;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
- }
- input[type="button"]:active{
-   background-color: white;
-   color: grey;
-   border-color: white;
- }
- input[type="file"]:active{
-   background-color: white;
-   color: grey;
-   border-color: white;
- }
+}
