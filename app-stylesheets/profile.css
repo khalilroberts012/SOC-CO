@@ -55,6 +55,7 @@ body {
   height: 375px;
   width: 350px;
   display: flex;
+  flex-shrink: 1;
   grid-template-columns: 66% 33%;
   margin: 0 auto;
   margin-top: 20px;
@@ -69,6 +70,7 @@ body {
   height: 860px;
   width: 600px;
   display: flex;
+  flex-shrink: 1;
   grid-template-columns: 66% 33%;
   margin: 0 auto;
   margin-top: -10px;

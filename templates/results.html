@@ -20,7 +20,7 @@
 
     <title>{{userName}}</title>
     <link rel="stylesheet" type="text/css" href="/app-stylesheets/boring-style.css">
-  <form>
+  <form method="POST">
       </head>
         <body>
 
@@ -37,11 +37,12 @@
               <p id="email">{{email}}</p>
               <button type="button" id="button">Add on all</button>
               <a href="{{twitterHandle}}"><input type="button" value="Twitter" class="input" id="twitter"></a>
-              <input type="text" placeholder="enter your Twitter user" class="input" id="twitterInput">
+              <input type="user-twitterHandle" placeholder="enter your Twitter user" name="user-twitterHandle" class="input" id="twitterInput">
               <a href="{{linkedinHandle}}"><input type="button" value="Linkedin" class="input" id="linkedin"></a>
-              <input type="text" placeholder="enter your Linkedin user" class="input" id="linkedinInput">
+              <input type="user-twitterHandle" placeholder="enter your Linkedin user" name="user-linkedinHandle" class="input" id="linkedinInput">
               <a href="{{facebookHandle}}"><input type="button" value="Facebook" class="input" id="facebook"></a>
-              <input type="text" placeholder="enter your Facebook user" class="input" id="facebookInput">
+              <input type="user-twitterHandle" placeholder="enter your Facebook user" name="user-facebookHandle" class="input" id="facebookInput">
+              <input type="submit" value="Add Account" class="input" id="submit">
             </div>
           </div>
   </form>

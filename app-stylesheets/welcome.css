@@ -32,28 +32,54 @@
   width: 100px;
 }
 
-#conpass{
-  border-style: solid;
-  border-color: white;
-  border-radius: 0px 0px 15px 15px;
-}
-
 #first {
   border-style: solid;
   border-color: white;
   border-radius: 15px 15px 0px 0px;
+  border-bottom-color: gray;
+  text-align: center;
+  font-size: 15px;
+}
+
+#last {
+  border-style: solid;
+  border-color: white;
+  border-bottom-color: gray;
+  text-align: center;
+  font-size: 15px;
+}
+
+#userName {
+  border-style: solid;
+  border-color: white;
+  border-bottom-color: gray;
+  text-align: center;
+  font-size: 15px;
 }
 
 #email {
   border-style: solid;
   border-color: white;
-  border-radius: 15px 15px 0px 0px;
+  border-bottom-color: gray;
+  text-align: center;
+  font-size: 15px;
 }
 
 #password {
   border-style: solid;
   border-color: white;
+  border-color: white;
+  border-bottom-color: gray;
+  text-align: center;
+  font-size: 15px;
+}
+
+#conpass{
+  border-style: solid;
+  border-color: white;
   border-radius: 0px 0px 15px 15px;
+  text-align: center;
+  font-size: 15px;
 }
 
 
