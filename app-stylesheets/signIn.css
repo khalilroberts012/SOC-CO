@@ -1,18 +1,59 @@
-.signIn {
-  /* margin-right: 250px; */
-  /* margin-top: -250px; */
-  /* float: right; */
-  text-align: center;
-  display: inline-block;
-  flex-shrink: 1;
-  height: 55px;
-  width: 360px;
-  border-style: : solid;
-  /* border-radius: 250px; */
-  background-color: black;
-  opacity: .80;
-  flex-basis: auto;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(2, auto);
+
+#title {
+  color: Green;
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
 }
+
+#topnav{
+  background-color: #333;
+  color: #f2f2f2;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  list-style-type: none;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border: 1px solid #e7e7e7
+  }
+
+#topnav :hover {
+  text-decoration: underline;
+  color: white;
+
+}
+
+ body {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png"),
+  url("https://cdn.allwallpaper.in/wallpapers/1920x1200/10065/steel-textures-wood-1920x1200-wallpaper.jpg");
+  background-position: center;
+  background-repeat: no-repeat,repeat;
+ }
+
+ .description {
+   color: green;
+   font-family: 'Cabin', sans-serif;
+   font-size: 40px;
+   text-align: left;
+   font-weight: bold;
+   margin-left: 2em;
+ }
+
+ .description2{
+   color: white;
+   font-family: 'Cabin', sans-serif;
+   margin-left: 4em;
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ img {
+   width: 300px;
+   height: 175px;
+ }
