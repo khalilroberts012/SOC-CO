@@ -76,6 +76,15 @@
    text-align: left;
  }
 
+ .description3{
+   color: white;
+   font-family: 'Cabin', sans-serif;
+   margin-left: 3em;
+   font-size: 25px;
+   font-weight: bold;
+   text-align: left;
+ }
+
  .footer {
   background-color: #3D434C;
   text-align: center;
