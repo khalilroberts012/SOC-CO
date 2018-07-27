@@ -20,7 +20,9 @@
 
     <title>{{userName}}</title>
     <link rel="stylesheet" type="text/css" href="/app-stylesheets/boring-style.css">
+
   <form method="POST">
+
       </head>
         <body>
 
@@ -42,10 +44,12 @@
               <input type="linkedinInput" placeholder="enter your Linkedin user" name="linkedinInput" class="input" id="linkedinInput">
               <a href="{{facebookHandle}}"><input type="button" value="Facebook" class="input" id="facebook"></a>
               <input type="facebookInput" placeholder="enter your Facebook user" name="facebookInput" class="input" id="facebookInput">
-              <a href="http://soc-co.appspot.com/{{userName}}"><input type="submit" value="Add Accounts" class="input" id="submit"></a>
+
+              <form method="POST" action="http://soc-co.appspot.com/{{useName}}"><input type="submit" value="Add Accounts" class="input" id="submit"></form>
             </div>
           </div>
   </form>
+    <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit"></a>
   </head>
     <body>
           <div class="wrapper">
