@@ -22,10 +22,9 @@
     <link rel="stylesheet" type="text/css" href="/app-stylesheets/boring-style.css">
 
   <form method="POST">
-
+    <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit2"></a>
       </head>
         <body>
-
           <div class="grid1">
             <div id="create1">
               <img src={{profilePicture}}></img>
@@ -37,28 +36,22 @@
               <h1>{{firstName}} {{lastName}}</h1>
               <p id="userName">{{userName}}</p>
               <p id="email">{{email}}</p>
-              <button type="button" id="button">Add on all</button>
+              <a href="{{snapchatHandle}}"><input type="button" value="Snapchat" class="input" id="snapchat"></a>
+              <input type="snapchatInput" placeholder="enter your Snapchat username" name="snapchatInput" class="input" id="snapchatInput">
+              <a href="{{instagramHandle}}"><input type="button" value="Instagram" class="input" id="instagram"></a>
+              <input type="instagramInput" placeholder="enter your Instagram username" name="instagramInput" class="input" id="instagramInput">
               <a href="{{twitterHandle}}"><input type="button" value="Twitter" class="input" id="twitter"></a>
-              <input type="twitterInput" placeholder="enter your Twitter user" name="twitterInput" class="input" id="twitterInput">
+              <input type="twitterInput" placeholder="enter your Twitter username" name="twitterInput" class="input" id="twitterInput">
               <a href="{{linkedinHandle}}"><input type="button" value="Linkedin" class="input" id="linkedin"></a>
-              <input type="linkedinInput" placeholder="enter your Linkedin user" name="linkedinInput" class="input" id="linkedinInput">
+              <input type="linkedinInput" placeholder="enter your Linkedin username" name="linkedinInput" class="input" id="linkedinInput">
               <a href="{{facebookHandle}}"><input type="button" value="Facebook" class="input" id="facebook"></a>
-              <input type="facebookInput" placeholder="enter your Facebook user" name="facebookInput" class="input" id="facebookInput">
-<<<<<<< HEAD
-
-              <form method="POST" action="http://soc-co.appspot.com/{{useName}}"><input type="submit" value="Add Accounts" class="input" id="submit"></form>
-            </div>
-          </div>
-  </form>
-    <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit"></a>
-=======
+              <input type="facebookInput" placeholder="enter your Facebook username" name="facebookInput" class="input" id="facebookInput">
               <a href="/{{userName}}"><input type = "submit" value="Add Accounts" class="input" id="submit"</a>
 
             </div>
           </div>
   </form>
 
->>>>>>> 8862dbdb260edddface55ced30c813c898309dbe
   </head>
     <body>
           <div class="wrapper">
