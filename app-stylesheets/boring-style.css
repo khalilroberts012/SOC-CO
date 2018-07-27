@@ -147,20 +147,8 @@ img {
   margin-bottom: 20px;
 }
 
- #twitter {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 90px;
-  width: 350px;
-  color: white;
-  border-style: solid;
-  background-color: #33CCFF;
-  border-bottom-color: white;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
-  border-radius: 15px;
-  margin-left: 30px;
+.twitter-follow-button {
+   margin: 0 auto;
  }
 
 
@@ -258,15 +246,16 @@ img {
 
 #twitterInput {
   height: 15px;
-  width: 344px;
+  width: 100px;
   border-style: solid;
   background-color: white;
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
   border-radius: 15px 15px 15px 15px;
-  margin-left: 30px;
+  margin-left: 5px;
   margin-bottom: 15px;
   margin-top: 10px;
+  margin-right: -80px;
   text-align: center;
 }
 
