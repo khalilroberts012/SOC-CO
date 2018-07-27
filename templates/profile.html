@@ -13,16 +13,18 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
+<!DOCTYPE html>
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
 
     <title>{{userName}}</title>
     <link rel="stylesheet" type="text/css" href="/app-stylesheets/boring-style.css">
+
   <form method="POST">
+    <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit2"></a>
       </head>
         <body>
-
           <div class="grid1">
             <div id="create1">
               <img src={{profilePicture}}></img>
@@ -34,21 +36,28 @@
               <h1>{{firstName}} {{lastName}}</h1>
               <p id="userName">{{userName}}</p>
               <p id="email">{{email}}</p>
-              <button type="button" id="button">Add on all</button>
-              <a href="{{instagramHandle}}"><input type="button" value="Instagram" class="input" id="instagram"></a>
-              <a href="{{twitterHandle}}"><input type="button" value="Twitter" class="input" id="twitter"></a>
-              <a href="{{linkedinHandle}}"><input type="button" value="Linkedin" class="input" id="linkedin"></a>
-              <a href="{{facebookHandle}}"><input type="button" value="Facebook" class="input" id="facebook"></a>
-              <a href="{{snapchatHandle}}"><input type="button" value="Snapchat" class="input" id="snapchat"></a>
-              <a href="{{signOut}}"><input type="button" value="Sign Out" class="input" id="submit"></a>
+              <!-- <a href="#" onclick="window.open("{{snapchatHandle}}")"><input type="button" value="Sign Out" class="input" id="submit2"></a> -->
+              <a href="{{snapchatHandle}}" target="_blank" onclick="window.open({{snapchatHandle}});"><input type="button" value="Snapchat" class="input" id="snapchat"></a>
+
+              <a href="{{instagramHandle}}" target="_blank" onclick="window.open({{instagramHandle}});"><input type="button" value="Instagram" class="input" id="instagram"></a>
+
+              <a href="{{twitterHandle}}" target="_blank" onclick="window.open({{twitterHandle}});"><input type="button" value="Twitter" class="input" id="twitter"></a>
+
+              <a href="{{linkedinHandle}}" target="_blank" onclick="window.open({{linkedinHandle}});"><input type="button" value="Linkedin" class="input" id="linkedin"></a>
+
+              <a href="{{facebookHandle}}" target="_blank" onclick="window.open({{facebookHandle}});"><input type="button" value="Facebook" class="input" id="facebook"></a>
+
+            </form>
+
             </div>
           </div>
   </form>
+
   </head>
-    <body>
           <div class="wrapper">
             <div class="push"></div>
           </div>
+
           <footer class="footer"></footer>
 
   </body>

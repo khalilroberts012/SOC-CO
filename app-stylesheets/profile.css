@@ -13,183 +13,218 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-html {
 
-}
-
-body {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
-  background-size: cover;
-  background-position: center;
- }
-.create1{
-  flex-shrink: 1;
-  flex-basis: auto;
-  display: grid;
-  grid-template-columns: 2;
-  grid-template-rows: repeat(4, auto);
-}
-
-.create {
-   width: 400px;
-   height: 700px;
-   margin-top: 40px;
-   margin-bottom: 0px;
-   margin-left: 50px;
-   border-style: solid;
+ body {
+   background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
+   background-size: cover;
+   background-position: center;
+  }
+ .create1{
    flex-shrink: 1;
    flex-basis: auto;
    display: grid;
-   grid-template-columns: auto;
+   grid-template-columns: 2;
    grid-template-rows: repeat(4, auto);
  }
 
-::placeholder {
-  color: grey;
-  text-align: center;
-}
+ .create {
+    width: 400px;
+    height: 700px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+    border-style: solid;
+    flex-shrink: 1;
+    flex-basis: auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, auto);
+  }
 
-.grid1 {
-  float: left;
-  height: 375px;
-  width: 350px;
-  display: flex;
-  flex-shrink: 1;
-  grid-template-columns: 66% 33%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: -10px;
-}
+ ::placeholder {
+   color: grey;
+   text-align: center;
+ }
 
-.grid {
-  text-align: left;
-  float: right;
-  background-color: black;
-  opacity: .8;
-  height: 860px;
-  width: 600px;
-  display: flex;
-  flex-shrink: 1;
-  grid-template-columns: 66% 33%;
-  margin: 0 auto;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  margin-right: -25px;
-}
+ .grid1 {
+   float: left;
+   height: 375px;
+   width: 350px;
+   display: flex;
+   grid-template-columns: 66% 33%;
+   margin: 0 auto;
+   margin-top: 20px;
+   margin-bottom: -10px;
+ }
 
-h1 {
-   font-size: 60px;
-   font-family: 'Cabin', sans-serif;
-   color: white;
+ .grid {
    text-align: left;
-   margin-top: 50px;
+   float: right;
+   background-color: black;
+   opacity: .8;
+   height: 910px;
+   width: 600px;
+   display: flex;
+   grid-template-columns: 66% 33%;
+   margin: 0 auto;
+   margin-top: -10px;
+   margin-bottom: -10px;
+   margin-right: -25px;
+ }
+
+ h1 {
+    font-size: 60px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-right: 100px;
+    margin-left: 30px;
+
+  }
+ img {
+    display: block;
+    height: 700px;
+    width: 700px;
+    margin-right: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 350px;
+  }
+
+  p {
+    font-size: 25px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 30px;
+  }
+
+  #submit {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 17px;
+    width: 80px;
+    color: white;
+    border-style: solid;
+    background-color: gray;
+    border-bottom-color: white;
+    font-size: 10px;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 15px 15px 15px 15px;
+  }
+
+  #submit2 {
+    float: left;
+    margin-left: 10px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 50px;
+    color: white;
+    border-style: solid;
+    background-color: gray;
+    border-bottom-color: white;
+    font-size: 10px;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 15px 15px 15px 15px;
+    margin-top: 10px;
+ }
+
+ #userName {
+   margin-top: 10px;
    margin-bottom: 0px;
-   margin-right: 100px;
-   margin-left: 30px;
-
  }
-img {
-   display: block;
-   height: 700px;
-   width: 700px;
-   margin-left: 50px;
 
-   margin-top: 30px;
+ #email {
+   margin-top: 5px;
    margin-bottom: 20px;
-   border-style: solid;
-   border-color: white;
-   border-radius: 350px;
  }
 
- p {
-   font-size: 25px;
-   font-family: 'Cabin', sans-serif;
-   color: white;
-   text-align: left;
-   margin-top: 0px;
-   margin-left: 30px;
- }
-
- #button {
-   font-size: 20px;
-   font-family: 'Cabin', sans-serif;
+  #twitter {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   appearance: none;
    height: 90px;
    width: 350px;
-   text-align: center;
+   color: white;
    border-style: solid;
-   color: grey;
-   border-bottom-color: grey;
-   border-top-color: grey;
+   background-color: #33CCFF;
+   border-bottom-color: white;
+   font-size: 20px;
+   font-family: 'Cabin', sans-serif;
    border-radius: 15px 15px 15px 15px;
    margin-left: 30px;
- }
+  }
 
-#userName {
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
 
-#email {
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
+   #instagram {
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none;
+     height: 90px;
+     width: 350px;
+     color: white;
+     border-style: solid;
+     background: url("https://d1qhuz9ahqnrhh.cloudfront.net/wp-content/uploads/2016/05/instagram_gradient_wallpaper_by_jasonzigrino-da28exh.png");
+     border-bottom-color: white;
+     font-size: 20px;
+     font-family: 'Cabin', sans-serif;
+     border-radius: 15px 15px 15px 15px;
+     margin-left: 30px;
+   }
 
-#twitter {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 90px;
-  width: 350px;
-  color: white;
-  border-style: solid;
-  background-color: #33CCFF;
-  border-bottom-color: white;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
-  border-radius: 15px 15px 15px 15px;
-  margin-top: 30px;
-  margin-left: 30px;
-  margin-bottom: 10px;
- }
+   #snapchat {
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none;
+     height: 90px;
+     width: 350px;
+     color: #020202;
+     border-style: solid;
+     background-color: #fffc00;
+     border-bottom-color: white;
+     font-size: 20px;
+     font-family: 'Cabin', sans-serif;
+     border-radius: 15px 15px 15px 15px;
+     margin-left: 30px;
+   }
 
-#linkedin {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 90px;
-  width: 350px;
-  color: white;
-  border-style: solid;
-  background-color: #4875B4;
-  border-bottom-color: white;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
-  border-radius: 15px 15px 15px 15px;
-  margin-left: 30px;
-  margin-bottom: 10px;
- }
+  #linkedin {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   appearance: none;
+   height: 90px;
+   width: 350px;
+   color: white;
+   border-style: solid;
+   background-color: #4875B4;
+   border-bottom-color: white;
+   font-size: 20px;
+   font-family: 'Cabin', sans-serif;
+   border-radius: 15px 15px 15px 15px;
+   margin-left: 30px;
 
-#facebook {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 90px;
-  width: 350px;
-  border-style: solid;
-  border-color: grey;
-  color: white;
-  background-color: #3B5998;
-  border-bottom-color: grey;
-  border-top-color: grey;
-  font-size: 20px;
-  font-family: 'Cabin', sans-serif;
-  border-radius: 15px 15px 15px 15px;
-  margin-left: 30px;
-  margin-bottom: 10px;
- }
+  }
 
-input[type="button"]:active{
-  background-color: white;
-  color: grey;
-  border-color: white;
-}
+  #facebook {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   appearance: none;
+   height: 90px;
+   width: 350px;
+   border-style: solid;
+   color: white;
+   background-color: #3B5998;
+   border-bottom-color: white;
+   font-size: 20px;
+   font-family: 'Cabin', sans-serif;
+   border-radius: 15px 15px 15px 15px;
+   margin-left: 30px;
+  }

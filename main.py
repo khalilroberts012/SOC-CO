@@ -109,7 +109,7 @@ class HomepageLoginHandler(webapp2.RequestHandler):
         if self.request.get('snapchatInput'):
             userProfile.snapchatHandle = "https://www.snapchat.com/add/" + str(self.request.get('snapchatInput') + "/")
         if self.request.get('instagramInput'):
-            userProfile.instagramHandle = "https://www.snapchat.com/add/" + str(self.request.get('instagramInput') + "/")
+            userProfile.instagramHandle = "https://www.instagram.com/" + str(self.request.get('instagramInput') + "/")
         userProfile.put()
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
@@ -124,8 +124,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
             'linkedinHandle': userProfile.linkedinHandle,
-            'snapchatHandle': existingUser.snapchatHandle,
-            'instagramHandle': existingUser.instagramHandle,
+            'snapchatHandle': userProfile.snapchatHandle,
+            'instagramHandle': userProfile.instagramHandle,
             'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
             'profileRedirect': "http://soc-co.appspot.com/" + str(userProfile.userName)
         })
@@ -191,8 +191,8 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
-                'snapchatHandle': existingUser.snapchatHandle,
-                'instagramHandle': existingUser.instagramHandle,
+                'snapchatHandle': userProfile.snapchatHandle,
+                'instagramHandle': userProfile.instagramHandle,
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
                 'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
                 })
