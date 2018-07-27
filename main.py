@@ -52,6 +52,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
                     'twitterHandle': existingUser.twitterHandle,
                     'facebookHandle': existingUser.facebookHandle,
                     'linkedinHandle': existingUser.linkedinHandle,
+                    'snapchatHandle': existingUser.snapchatHandle,
+                    'instagramHandle': existingUser.instagramHandle,
                     'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
                     'signOut': users.create_logout_url('/'),
                     'profileRedirect': "http://soc-co.appspot.com/" + str(existingUser.userName)
@@ -104,6 +106,10 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
         if self.request.get('linkedinInput'):
             userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput') + "/")
+        if self.request.get('snapchatInput'):
+            userProfile.snapchatHandle = "https://www.snapchat.com/add/" + str(self.request.get('snapchatInput') + "/")
+        if self.request.get('instagramInput'):
+            userProfile.instagramHandle = "https://www.snapchat.com/add/" + str(self.request.get('instagramInput') + "/")
         userProfile.put()
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
@@ -118,6 +124,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
             'linkedinHandle': userProfile.linkedinHandle,
+            'snapchatHandle': existingUser.snapchatHandle,
+            'instagramHandle': existingUser.instagramHandle,
             'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
             'profileRedirect': "http://soc-co.appspot.com/" + str(userProfile.userName)
         })
@@ -149,6 +157,8 @@ class EditPageHandler(webapp2.RequestHandler):
                     'twitterHandle': existingUser.twitterHandle,
                     'facebookHandle': existingUser.facebookHandle,
                     'linkedinHandle': existingUser.linkedinHandle,
+                    'snapchatHandle': existingUser.snapchatHandle,
+                    'instagramHandle': existingUser.instagramHandle,
                     'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
                     'signOut': users.create_logout_url('/'),
                     'profileRedirect': "http://soc-co.appspot.com/" + str(existingUser.userName)
@@ -181,6 +191,8 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
+                'snapchatHandle': existingUser.snapchatHandle,
+                'instagramHandle': existingUser.instagramHandle,
                 'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
                 'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
                 })
