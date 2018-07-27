@@ -3,16 +3,24 @@
   margin-top: 10px;
   border-radius: 10px;
   width: 90px;
+  margin-top: 70px;
+  margin-left: 15px;
+}
+
+#logo2 {
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 60px;
 }
 
 #heading {
-  color: Green;
+  color: white;
   text-align: left;
   font-size: 20px;
   font-family: 'Cabin', sans-serif;
 }
 
-#topnav{
+#topnav {
   background-color: #3D434C;
   text-align: center;
   display: flex;
@@ -22,12 +30,12 @@
   text-decoration: none;
   font-size: 20px;
   list-style-type: none;
-  position: sticky;
   width: 100%;
   border: 1px solid #e7e7e7;
   text-decoration: none;
   margin-left: auto;
   margin-right: auto;
+  position: fixed;
   }
 
 #topnav :hover {
@@ -35,10 +43,19 @@
 }
 
 #socialpic {
-  width: 300px;
-  height: 175px;
-  border-radius: 20px;
-  margin-left: 5em;
+  width: 210px;
+  height: 200px;
+  margin-left: 67.5em;
+  margin-top: -12em;
+  border-radius: 5px;
+}
+
+#Iphone {
+  height: 425px;
+  width: 480px;
+  width: center;
+  margin-top: -340px;
+  float: right;
 }
 
  .description {
@@ -53,28 +70,30 @@
  .description2{
    color: gray;
    font-family: 'Cabin', sans-serif;
-   margin-left: 4em;
-   font-size: 20px;
+   margin-left: 3em;
+   font-size: 25px;
    font-weight: bold;
+   text-align: left;
  }
 
  .footer {
   background-color: #3D434C;
   text-align: center;
   bottom: 0;
-  position: fixed;
   width: 100%;
   left: 0;
+  position: fixed;
  }
 
  body {
   background: url("https://upload.wikimedia.org/wikipedia/commons/e/e2/Social_media.png");
   background-position: center;
-  background-repeat: no-repeat,repeat;
+  background-repeat: no-repeat;
  }
 
  h1 {
-
+   text-align: center;
+   font-size: 50px;
  }
 
  form {
