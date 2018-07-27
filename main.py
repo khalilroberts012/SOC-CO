@@ -41,8 +41,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
             #If the user has previously been to our site, we greet them
             if existingUser:
-                UserProfileTemplate = jinja_env.get_template("templates/results.html")
-                html = UserProfileTemplate.render({
+                userProfileTemplate = jinja_env.get_template("templates/results.html")
+                html = userProfileTemplate.render({
                     'firstName': existingUser.firstName,
                     'lastName': existingUser.lastName,
                     'userName': existingUser.userName,
@@ -53,7 +53,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
                     'facebookHandle': existingUser.facebookHandle,
                     'linkedinHandle': existingUser.linkedinHandle,
                     'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
-                    'signOut': users.create_logout_url('/')
+                    'signOut': users.create_logout_url('/'),
+                    'profileRedirect': "http://soc-co.appspot.com/" + str(existingUser.userName)
                 })
                 self.response.write(html)
 
@@ -74,22 +75,35 @@ class HomepageLoginHandler(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
-        userProfile = userProfileModel.UserProfile(id=user.user_id())
+        userProfile = UserProfile.get_by_id(user.user_id())
+
+        if not userProfile:
+            userProfile = userProfileModel.UserProfile(id=user.user_id())
 
         if not user:
             self.error(500)
             return
 
-        userProfile.firstName = self.request.get('user-firstname')
-        userProfile.lastName = self.request.get('user-lastname')
-        userProfile.userName = (self.request.get('user-username')).lower()
-        userProfile.email = self.request.get('user-email')
-        userProfile.password = self.request.get('user-password')
-        userProfile.phone = self.request.get('user-phone')
-        userProfile.profilePicture = self.request.get('image')
-        userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
-        userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
-        userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput') + "/")
+        if self.request.get('user-firstname'):
+            userProfile.firstName = self.request.get('user-firstname')
+        if self.request.get('user-lastname'):
+            userProfile.lastName = self.request.get('user-lastname')
+        if self.request.get('user-username'):
+            userProfile.userName = (self.request.get('user-username')).lower()
+        if self.request.get('user-email'):
+            userProfile.email = self.request.get('user-email')
+        if self.request.get('user-password'):
+            userProfile.password = self.request.get('user-password')
+        if self.request.get('user-phone'):
+            userProfile.phone = self.request.get('user-phone')
+        if self.request.get('image'):
+            userProfile.profilePicture = self.request.get('image')
+        if self.request.get('twitterInput'):
+            userProfile.twitterHandle = "https://twitter.com/" + str(self.request.get('twitterInput'))
+        if self.request.get('facebookInput'):
+            userProfile.facebookHandle = "https://facebook.com/" + str(self.request.get('facebookInput'))
+        if self.request.get('linkedinInput'):
+            userProfile.linkedinHandle = "https://www.linkedin.com/in/" + str(self.request.get('linkedinInput') + "/")
         userProfile.put()
 
         displayUserProfileTemplate = jinja_env.get_template("templates/results.html")
@@ -104,7 +118,8 @@ class HomepageLoginHandler(webapp2.RequestHandler):
             'twitterHandle': userProfile.twitterHandle,
             'facebookHandle': userProfile.facebookHandle,
             'linkedinHandle': userProfile.linkedinHandle,
-            'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe()))
+            'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
+            'profileRedirect': "http://soc-co.appspot.com/" + str(userProfile.userName)
         })
 
         self.response.write(html)
@@ -135,7 +150,8 @@ class EditPageHandler(webapp2.RequestHandler):
                     'facebookHandle': existingUser.facebookHandle,
                     'linkedinHandle': existingUser.linkedinHandle,
                     'profilePicture': str("/img?id=" + str(existingUser.key.urlsafe())),
-                    'signOut': users.create_logout_url('/')
+                    'signOut': users.create_logout_url('/'),
+                    'profileRedirect': "http://soc-co.appspot.com/" + str(existingUser.userName)
                 })
                 self.response.write(html)
 
@@ -165,6 +181,10 @@ class ShowUserHandler(webapp2.RequestHandler):
                 'twitterHandle': userProfile.twitterHandle,
                 'facebookHandle': userProfile.facebookHandle,
                 'linkedinHandle': userProfile.linkedinHandle,
+<<<<<<< HEAD
+                'profilePicture': "/img?id=" + str(userProfile.key.urlsafe()),
+=======
+>>>>>>> 670fadd5d42b81ab3b074f6e7de2d1512cd954cb
                 'profilePicture': str("/img?id=" + str(userProfile.key.urlsafe())),
                 })
             self.response.write(html)
